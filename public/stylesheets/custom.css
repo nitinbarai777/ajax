@@ -1,0 +1,168 @@
+div.field, div.actions {
+    margin-bottom: 10px;
+}
+.container {
+    width: 710px;
+}
+body {
+    background: none repeat scroll 0 0 #4B7399;
+}
+header {
+    padding-top: 0px;
+}
+header img {
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding: 1em;
+}
+section {
+    background: none repeat scroll 0 0 #FFFFFF;
+    font-size: 120%;
+    margin-top: 1em;
+    padding: 20px;
+}
+section h1 {
+    font-size: 200%;
+}
+a {
+    color: #0099CC;
+    text-decoration: none;
+}
+a:hover {
+    color: #006699;
+    text-decoration: underline;
+}
+a:visited {
+    color: #006699;
+}
+nav {
+    float: right;
+}
+nav {
+    background-color: white;
+    padding: 0 0.7em;
+    white-space: nowrap;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 0.2em 0;
+}
+nav ul li a {
+    font-weight: bold;
+    padding: 0 5px;
+}
+nav ul li a:visited {
+    color: #0099CC;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+a.signup_button {
+    background: none repeat scroll 0 0 #006400;
+    color: #FFFFFF;
+    display: block;
+    font-size: 150%;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    text-align: center;
+    width: 190px;
+}
+.round {
+    border-radius: 10px 10px 10px 10px;
+}
+footer {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    text-align: center;
+    width: 710px;
+}
+footer nav {
+    float: none;
+}
+nav {
+    float: right;
+}
+.field_with_errors {
+    background-color: red;
+    display: table;
+    margin-top: 10px;
+    padding: 2px;
+}
+.field_with_errors label {
+    color: #FFFFFF;
+}
+#error_explanation {
+    background-color: #F0F0F0;
+    border: 2px solid red;
+    margin-bottom: 20px;
+    padding: 7px 7px 12px;
+    width: 400px;
+}
+#error_explanation h2 {
+    background-color: #CC0000;
+    color: #FFFFFF;
+    font-size: 12px;
+    margin: -7px;
+    padding: 5px 5px 5px 15px;
+    text-align: left;
+}
+#error_explanation p {
+    color: #333333;
+    margin-bottom: 0;
+    padding: 5px;
+}
+#error_explanation ul li {
+    font-size: 12px;
+    list-style: square outside none;
+}
+h1.micropost {
+    margin-bottom: 0.3em;
+}
+table.microposts {
+    margin-top: 1em;
+}
+table.microposts tr {
+    height: 70px;
+}
+table.microposts tr td.gravatar {
+    border-top: 1px solid #CCCCCC;
+    vertical-align: top;
+    width: 50px;
+}
+table.microposts tr td.micropost {
+    border-top: 1px solid #CCCCCC;
+    padding-top: 10px;
+    vertical-align: top;
+}
+table.microposts tr td.micropost span.timestamp {
+    color: #666666;
+    display: block;
+    font-size: 85%;
+}
+div.user_info img {
+    padding-right: 0.1em;
+}
+div.user_info a {
+    text-decoration: none;
+}
+div.user_info span.user_name {
+    position: absolute;
+}
+div.user_info span.microposts {
+    font-size: 80%;
+}
+form.new_micropost {
+    margin-bottom: 2em;
+}
+form.new_micropost textarea {
+    height: 4em;
+    margin-bottom: 0;
+}
+

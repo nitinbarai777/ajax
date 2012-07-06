@@ -1,0 +1,73 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contact %><br />
+    <%= f.text_field :contact %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remote_image_url %><br />
+    <%= f.text_field :remote_image_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :income %><br />
+    <%= f.text_field :income %> $
+  </div>
+
+  <div class="field">
+    <%= f.label :is_admin %><br />
+    <%= f.check_box :is_admin %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :Save %>
+  </div>
+<% end %>
+
+

@@ -3,3 +3,6 @@
 
 en:
   hello: "Hello world"
+  common:
+    login_successful: Login Successful
+    

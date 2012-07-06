@@ -1,0 +1,27 @@
+<header>
+    <%= link_to(image_tag("login-logo.jpg", :alt => "Sample App", :class => "round"), root_path) %>
+    <nav class="round">
+      <ul>
+        <% if !session[:user_id].nil? %>
+            <% if current_user.is_admin == 1 %>
+               <li>Welcome, <%= current_user.username %></li>
+		        <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Users", users_path %></li>
+                <li><%= link_to "Products", products_path %></li>
+		        <li><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
+		        <li><%= link_to "Logout", :logout%></li>
+            <% else %>
+               <li>Welcome, <%= current_user.username %></li>
+		        <li><%= link_to "Home", root_path %></li>
+                <li><%= link_to "Products", products_path %></li>
+		        <li><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
+		        <li><%= link_to "Logout", :logout%></li>
+            <% end %>
+        <% else %>
+	        <li><%= link_to "Home", root_path %></li>
+	        <li><%= link_to "Register", new_user_path%></li>
+	        <li><%= link_to "Login", :login %></li>
+        <% end %>
+      </ul>
+    </nav>
+</header>
