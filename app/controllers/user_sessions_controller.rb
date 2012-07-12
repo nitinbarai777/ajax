@@ -1,5 +1,6 @@
 class UserSessionsController < ApplicationController
 
+  before_filter :require_user, :except => [:new, :create]
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
   def new
@@ -37,9 +38,14 @@ class UserSessionsController < ApplicationController
 
     respond_to do |format|
       if @user_session.save
-		 session[:user_id] = current_user.id
-        format.html { redirect_to(:users, :notice => t("common.login_successful")) }
-        format.xml { render :xml => @user_session, :status => :created, :location => @user_session }
+		session[:user_id] = current_user.id
+		if current_user.is_admin == 1
+	        format.html { redirect_to(:users, :notice => t("common.login_successful")) }
+    	    format.xml { render :xml => @user_session, :status => :created, :location => @user_session }
+		else
+	        format.html { redirect_to(:fronts, :notice => t("common.login_successful")) }
+    	    format.xml { render :xml => @user_session, :status => :created, :location => @user_session }
+		end
       else
         format.html { render :action => "new" }
         format.xml { render :xml => @user_session.errors, :status => :unprocessable_entity }

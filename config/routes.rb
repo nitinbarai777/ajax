@@ -1,4 +1,26 @@
 Store::Application.routes.draw do
+  get "front/index"
+
+  resources :fronts
+
+  resources :coupons
+
+  resources :merchant_locations
+
+  resources :merchants
+
+  resources :coupontypes
+
+  resources :areas
+
+  resources :cities
+
+  resources :categories
+
+  resources :gateways
+
+  resources :carriers
+
   resources :products
 
   resources :users
@@ -6,10 +28,14 @@ Store::Application.routes.draw do
 
 
   match 'login' => 'user_sessions#new', :as => :login
+  match 'admin' => 'user_sessions#new', :as => :admin
   match 'logout' => 'user_sessions#destroy', :as => :logout
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist
+
+  match 'merchant_list/:id' => 'merchant_locations#index', :as => :merchant_list
+  match 'coupon_list/:id' => 'coupons#index', :as => :coupon_list
 
   root :to => 'users#home'
 

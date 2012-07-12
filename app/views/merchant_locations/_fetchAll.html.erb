@@ -1,0 +1,26 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<b><%= t("general.merchant") %></b>: <%= Merchant.find(session[:merchant_id].to_i).name %>
+<table class="pretty" width="100%">
+  <tr>
+    <th><%= sortable "contact_person" %></th>
+    <th><%= sortable "contact" %></th>
+    <th><%= sortable "city_id" %></th>
+    <th><%= sortable "area_id" %></th>
+	<th><%= t("general.actions") %></th>
+  </tr>
+  <% for o_row in @o_all %>
+    <tr>
+      <td><%= o_row.contact_person %></td>
+      <td><%= o_row.contact %></td>
+      <td><%= City.find(o_row.city_id).name %></td>
+      <td><%= Area.find(o_row.area_id).name %></td>
+
+      <td> <%= link_to image_tag("edit.png", :width => "16px", :height => "16px", :title => t("general.edit")), edit_merchant_location_path(o_row) %>
+		   <%= link_to image_tag("delete.png", :width => "16px", :height => "16px", :title => t("general.destroy")), o_row, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %>
+			<%= link_to image_tag("history.jpeg", :width => "16px", :height => "16px", :title => t("general.coupon_details")), coupon_list_path(o_row.id) %>
+		</td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @o_all %>

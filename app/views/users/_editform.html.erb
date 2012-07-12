@@ -19,6 +19,15 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
 
   <div class="field">
     <%= f.label :address %><br />
@@ -51,22 +60,34 @@
   </div>
 
   <div class="field">
-    <%= f.label :remote_image_url %><br />
-    <%= f.text_field :remote_image_url %>
+    <%= f.label :mobile_number %><br />
+    <%= f.text_field :mobile_number %>
   </div>
 
   <div class="field">
-    <%= f.label :income %><br />
-    <%= f.text_field :income %> $
+    <%= f.label :carrier_id %><br />
+	<%= f.select :carrier_id, options_for_select(Carrier.all.map { |c| [c.name, c.id] }, @user.carrier_id)  %>
   </div>
 
+  <div class="field">
+    <%= f.label :gateway_id %><br />
+	<%= f.select :gateway_id, options_for_select(Gateway.all.map { |c| [c.name, c.id] }, @user.gateway_id)  %>
+  </div>
+<% if current_user.is_admin == 1 %>
   <div class="field">
     <%= f.label :is_admin %><br />
     <%= f.check_box :is_admin %>
   </div>
+<% end %>
+  <div class="field">
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </div>
 
   <div class="actions">
     <%= f.submit :Save %>
+  <%= link_to "Show", @user %> |
+  <%= link_to "View All", users_path %>
   </div>
 <% end %>
 

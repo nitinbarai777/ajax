@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  price: MyString
+  free_coupon: 1
+  image: MyString
+  min_purchase: 1
+  description: MyText
+  up_comming: false
+  address: MyText
+  highlights: MyText
+  term_conditions: MyText
+  offer: MyText
+  is_active: false
+  coupontype: 
+  merchant_location: 
+
+two:
+  name: MyString
+  price: MyString
+  free_coupon: 1
+  image: MyString
+  min_purchase: 1
+  description: MyText
+  up_comming: false
+  address: MyText
+  highlights: MyText
+  term_conditions: MyText
+  offer: MyText
+  is_active: false
+  coupontype: 
+  merchant_location: 

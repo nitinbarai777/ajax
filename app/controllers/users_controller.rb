@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :require_user, :except => [:new, :create]
+  before_filter :require_admin, :only => [:index]
   
   def index
     @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
@@ -17,8 +18,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+	  UserMailer.registration_confirmation(@user).deliver
       flash[:notice] = "Successfully created User."
-      redirect_to @user
+      #redirect_to @user
+	  redirect_to :controller => "user_sessions", :action => "new"
     else
       render :action => 'new'
     end
@@ -32,7 +35,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
       flash[:notice] = "Successfully updated User."
-      redirect_to @user
+	  if current_user.is_admin == 1	
+      	redirect_to users_path
+	  else
+		redirect_to fronts_path
+	  end		
     else
       render :action => 'edit'
     end

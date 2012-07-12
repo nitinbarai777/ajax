@@ -1,0 +1,57 @@
+<%= form_for @o_single do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.hidden_field :merchant_id, :value => session[:merchant_id] %>
+    <%= f.label :city_id %><br />
+    <%= f.select :city_id, options_for_select(City.all.map { |c| [c.name, c.id] }, @o_single.city_id)  %>
+  </p>
+
+  <p>
+    <%= f.label :area_id %><br />
+    <%= f.select :area_id, options_for_select(Area.all.map { |c| [c.name, c.id] }, @o_single.area_id)  %>
+  </p>
+
+  <p>
+    <%= f.label :category_id %><br />
+    <%= f.select :category_id, options_for_select(Category.all.map { |c| [c.name, c.id] }, @o_single.category_id)  %>
+  </p>
+
+  <p>
+    <%= f.label :contact_person %><br />
+    <%= f.text_field :contact_person %>
+  </p>
+
+  <p>
+    <%= f.label :contact %><br />
+    <%= f.text_field :contact %>
+  </p>
+
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+
+  <p>
+    <%= f.label :latitude %><br />
+    <%= f.text_field :latitude %>
+  </p>
+
+  <p>
+    <%= f.label :longitude %><br />
+    <%= f.text_field :longitude %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </p>
+
+
+
+  <p><%= f.submit :value => t("general.save") %></p>
+<% end %>

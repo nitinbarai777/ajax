@@ -1,0 +1,13 @@
+<% title t("general.all_records") %>
+
+<%= form_tag coupons_path, :method => 'get', :id => "div_update_search" do %>
+  <p>
+    <%= t("general.search") %>: <%= text_field_tag :search, params[:search] %>
+    <%#= submit_tag t("general.search"), :name => nil %>
+  </p>
+  <div id="div_update"><%= render 'fetchAll' %></div>
+<% end %>
+
+<p><%= link_to t("general.new"), new_coupon_path %>
+<%= link_to t("general.back"), merchant_locations_path %>
+</p>

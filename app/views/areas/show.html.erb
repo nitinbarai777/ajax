@@ -1,0 +1,12 @@
+<% title t("general.show_detail") %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @o_single.name %>
+</p>
+
+<p>
+  <%= link_to t("general.edit"), edit_area_path(@o_single) %> |
+  <%= link_to t("general.destroy"), @o_single, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %> |
+  <%= link_to t("general.view_all"), areas_path %>
+</p>

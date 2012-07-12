@@ -1,0 +1,16 @@
+<%= form_for @o_single do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :city_id %><br />
+    <%= f.select :city_id, options_for_select(City.all.map { |c| [c.name, c.id] }, @o_single.city_id)  %>
+  </p>
+  <p>
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </p>
+  <p><%= f.submit :value => t("general.save") %></p>
+<% end %>

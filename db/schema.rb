@@ -11,14 +11,110 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702073315) do
+ActiveRecord::Schema.define(:version => 20120711063811) do
+
+  create_table "areas", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.integer  "city_id"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  add_index "areas", ["city_id"], :name => "index_areas_on_city_id"
+
+  create_table "carriers", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "coupons", :force => true do |t|
+    t.string   "name"
+    t.string   "price"
+    t.integer  "free_coupon"
+    t.string   "image"
+    t.integer  "min_purchase"
+    t.text     "description"
+    t.boolean  "up_comming"
+    t.text     "address"
+    t.text     "highlights"
+    t.text     "term_conditions"
+    t.text     "offer"
+    t.boolean  "is_active"
+    t.integer  "coupontype_id"
+    t.integer  "merchant_location_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "coupons", ["coupontype_id"], :name => "index_coupons_on_coupontype_id"
+  add_index "coupons", ["merchant_location_id"], :name => "index_coupons_on_merchant_location_id"
+
+  create_table "coupontypes", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "gateways", :force => true do |t|
+    t.string   "name"
+    t.boolean  "is_active",  :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "merchant_locations", :force => true do |t|
+    t.string   "latitude"
+    t.string   "longitude"
+    t.text     "address"
+    t.string   "contact"
+    t.string   "contact_person"
+    t.string   "email"
+    t.integer  "city_id"
+    t.integer  "area_id"
+    t.integer  "merchant_id"
+    t.integer  "category_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "merchant_locations", ["area_id"], :name => "index_merchant_locations_on_area_id"
+  add_index "merchant_locations", ["category_id"], :name => "index_merchant_locations_on_category_id"
+  add_index "merchant_locations", ["city_id"], :name => "index_merchant_locations_on_city_id"
+  add_index "merchant_locations", ["merchant_id"], :name => "index_merchant_locations_on_merchant_id"
+
+  create_table "merchants", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "url"
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "products", :force => true do |t|
     t.string   "name"
     t.decimal  "price"
     t.datetime "released_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "user_sessions", :force => true do |t|
@@ -28,6 +124,11 @@ ActiveRecord::Schema.define(:version => 20120702073315) do
 
   create_table "users", :force => true do |t|
     t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "mobile_number"
+    t.string   "carrier_id"
+    t.integer  "gateway_id"
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"
@@ -37,11 +138,14 @@ ActiveRecord::Schema.define(:version => 20120702073315) do
     t.string   "state"
     t.string   "zipcode"
     t.string   "contact"
-    t.integer  "is_admin"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
     t.string   "image"
-    t.string   "income"
+    t.integer  "is_admin"
+    t.boolean  "is_active",         :default => true
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
+
+  add_index "users", ["carrier_id"], :name => "index_users_on_carrier_id"
+  add_index "users", ["gateway_id"], :name => "index_users_on_gateway_id"
 
 end

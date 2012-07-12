@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
         redirect_to :controller => "user_sessions", :action => "new"
       end
   end
+  def require_admin
+    if current_user.is_admin != 1
+        redirect_to :controller => "fronts", :action => "index"
+      end
+  end
 end

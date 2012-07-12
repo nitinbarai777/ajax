@@ -6,3 +6,25 @@ en:
   common:
     login_successful: Login Successful
     
+  general:
+    successfully_created: Successfully created
+    successfully_updated: Successfully updated
+    successfully_destroyed: Successfully destroyed
+    all_records: All Records
+    search: Search
+    new: New
+    actions: Actions
+    edit: Edit
+    destroy: Destroy
+    are_you_sure_to_delete: Are you sure?
+    show: Show
+    view_all: View all
+    save: Save
+    back: Back
+    show_detail: Show detail
+    new_user_registration: New user registration
+    login: Login
+    is_active: Active
+    merchant_details: Merchant Details
+    coupon_details: Coupon Details
+    merchant: Merchant

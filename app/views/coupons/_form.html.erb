@@ -1,0 +1,64 @@
+<%= form_for @o_single do |f| %>
+  <%= f.error_messages %>
+  <p>
+	<%= f.hidden_field :merchant_location_id, :value => session[:merchant_location_id] %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <%= f.label :free_coupon %><br />
+    <%= f.text_field :free_coupon %>
+  </p>
+
+  <p>
+    <%= f.label :min_purchase %><br />
+    <%= f.text_field :min_purchase %>
+  </p>
+
+  <p>
+    <%= f.label :up_comming %><br />
+    <%= f.check_box :up_comming %>
+  </p>
+
+  <p>
+    <%= f.label :coupontype_id %><br />
+    <%= f.select :coupontype_id, options_for_select(Coupontype.all.map { |c| [c.name, c.id] }, @o_single.coupontype_id)  %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </p>
+
+  <p>
+    <%= f.label :image %><br />
+    <%= f.file_field :image %>
+  </p>
+
+  <p>
+    <%= f.label :highlights %><br />
+    <%= f.text_area :highlights %>
+  </p>
+
+  <p>
+    <%= f.label :term_conditions %><br />
+    <%= f.text_area :term_conditions %>
+  </p>
+
+  <p>
+    <%= f.label :offer %><br />
+    <%= f.text_area :offer %>
+  </p>
+
+  <p>
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </p>
+  <p><%= f.submit :value => t("general.save") %></p>
+<% end %>
