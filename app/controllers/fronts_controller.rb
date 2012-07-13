@@ -5,7 +5,7 @@ class FrontsController < ApplicationController
     @o_all = Coupon.paginate(:per_page => 9, :page => params[:page])
   end
 
-  def create
+  def signin
 	@user_session = UserSession.new(params[:user_session])
 	if params[:user_session][:username].blank?
 		flash[:error_login] = 'Username Required.'
@@ -20,6 +20,22 @@ class FrontsController < ApplicationController
     else
   		flash[:error_login] = 'Credentials you entered are not valid.Please check the spelling for both username and password.'
 	    redirect_to fronts_path
+    end
+  end
+
+
+  def new
+    @user = User.new
+  end
+  
+  def create
+    @user = User.new(params[:user])
+    if @user.save
+	  UserMailer.registration_confirmation(@user).deliver
+      flash[:notice] = "Successfully Registered."
+	  redirect_to fronts_path
+    else
+      render :action => 'new'
     end
   end
 

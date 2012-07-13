@@ -31,7 +31,9 @@ Store::Application.routes.draw do
   match 'admin' => 'user_sessions#new', :as => :admin
   match 'logout' => 'user_sessions#destroy', :as => :logout
   match 'log_out' => 'fronts#destroy', :as => :log_out
-  match '/fronts_signin' => 'fronts#create', :as => :fronts_signin
+  match '/fronts_signin' => 'fronts#signin', :as => :fronts_signin
+  match '/fronts_signup' => 'fronts#create', :as => :fronts_signup
+
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist

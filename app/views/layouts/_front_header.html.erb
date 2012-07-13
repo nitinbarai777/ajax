@@ -3,11 +3,13 @@
 		           <a href="#"><img src="images/facebook-icon.png" alt="" /></a>
 		        </div>
 		        	<ul>
-		            	<li><a href="#">Home</a></li>
+		            	<li><%= link_to "Home", fronts_path %></li>
 		                <li><a href="#">How it Works?</a></li>
 		                <li class="last"><a href="#">Contact Us</a></li>
 						<% if !session[:user_id].nil? %>
-						<li><%= link_to "Logout", :log_out %></li>
+							<li><%= link_to "Logout", :log_out %></li>
+						<% else %>
+					        <li><%= link_to "Register", new_front_path%></li>
 						<% end %>
 
 		            </ul>
@@ -15,14 +17,14 @@
             </div>
             <div class="main-containt">
                 <div class="cuponbox">
-				    <div class="cuponbox-left"><img src="images/cupon-logo.jpg" alt="" /></div>
-				    <div class="cuponbox-right"><img src="images/cupon-img.jpg" alt="" /></div>
+				    <div class="cuponbox-left"><%= image_tag "cupon-logo.jpg" %></div>
+				    <div class="cuponbox-right"><%= image_tag "cupon-img.jpg" %></div>
 				    <div class="cl"></div>
 	            </div>
     	        <div class="citybox">
 		        	<ul>
 		            	<li><span>Filter By:</span></li>
-		                <li><a href="#"><img src="images/pink-check.jpg" alt="" />Ahmedabad</a></li>
-		                <li><a href="#"><img src="images/green-check.jpg" alt="" />Baroda</a></li>
+		                <li><a href="#"><%= image_tag "pink-check.jpg" %>Ahmedabad</a></li>
+		                <li><a href="#"><%= image_tag "green-check.jpg" %>Baroda</a></li>
 		            </ul>
 	            </div>

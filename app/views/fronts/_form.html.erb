@@ -1,0 +1,76 @@
+<%= form_for(@user, :url => fronts_signup_path) do |f| %>
+<!--
+  <%# if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%#= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+      <%# @user.errors.full_messages.each do |msg| %>
+        <li><%#= msg %></li>
+      <%# end %>
+      </ul>
+    </div>
+  <%# end %>
+-->
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+	<% if @user.errors[:first_name].any? %>
+		<%= raw @user.errors[:first_name].first %>
+	<% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+	<% if @user.errors[:last_name].any? %>
+		<%= raw @user.errors[:last_name].first %>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+	<% if @user.errors[:username].any? %>
+		<%= raw @user.errors[:username].first %>
+	<% end %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+	<% if @user.errors[:email].any? %>
+		<%= raw @user.errors[:email].first %>
+	<% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+	<% if @user.errors[:password].any? %>
+		<%= raw @user.errors[:password].first %>
+	<% end %>
+  </div>
+  <div class="field">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+	<% if @user.errors[:password_confirmation].any? %>
+		<%= raw @user.errors[:password_confirmation].first %>
+	<% end %>
+    </div>
+  <div class="field">
+    <%= f.label :mobile_number %>
+    <%= f.text_field :mobile_number %> &nbsp;Please enter your mobile number without 0 or +91
+	<% if @user.errors[:mobile_number].any? %>
+		<%= raw @user.errors[:mobile_number].first %>
+	<% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :carrier_id %>
+    <%= f.select :carrier_id, options_for_select(Carrier.all.map { |c| [c.name, c.id] }, @user.carrier_id)  %>
+  </div>
+  <div class="actions">
+    <%= f.submit :Save %>
+	<%= link_to t("general.back"), fronts_path %>
+  </div>
+<% end %>
+
+

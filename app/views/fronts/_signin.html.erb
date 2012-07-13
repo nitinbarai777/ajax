@@ -20,10 +20,11 @@
 										<div class="row-fluid">
 											<div class="span12">SIGN IN</div>
 										</div>
-									</h2>
+									</h2> <br /><br />
 										  <% flash.each do |name, msg| %>
 											<%= content_tag :div, msg, :id => "flash_#{name}" %>
 										  <% end %>
+
 											<%= form_for(@user_session, :url => fronts_signin_path) do |f| %>
 											  <% if @user_session.errors.any? %>
 												<div id="error_explanation">
@@ -36,11 +37,11 @@
 											  <% end %>
 
 											  <div class="field">
-												<%= f.label :username %><br />
+												<%= f.label :username %>
 												<%= f.text_field :username %>
 											  </div>
 											  <div class="field">
-												<%= f.label :password %><br />
+												<%= f.label :password %>
 												<%= f.password_field :password %>
 											  </div>
 											  <div class="actions">
