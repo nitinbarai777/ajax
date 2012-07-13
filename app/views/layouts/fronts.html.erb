@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) || "Untitled" %></title>
+
+	<%= stylesheet_link_tag 'bootstrap', :media => 'all' %>
+	<%= stylesheet_link_tag 'docs', :media => 'all' %>
+	<%= stylesheet_link_tag 'style', :media => 'all' %>
+
+    <%= javascript_include_tag :defaults %>
+  	<%= javascript_include_tag "rails.js" %>
+
+	<%= javascript_include_tag "jquery_002.js" %>
+	<%= javascript_include_tag "common.js" %>
+
+  </head>
+  <body>
+	<div id="wrapper">
+		<div class="row-fluid bgRight">
+			<div class="container">
+				<%= render 'layouts/front_header' %>
+				<%= yield %>
+				<%= render 'layouts/front_footer' %>
+			<div>
+		<div>
+	<div>
+
+  </body>
+</html>
+

@@ -30,6 +30,8 @@ Store::Application.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'admin' => 'user_sessions#new', :as => :admin
   match 'logout' => 'user_sessions#destroy', :as => :logout
+  match 'log_out' => 'fronts#destroy', :as => :log_out
+  match '/fronts_signin' => 'fronts#create', :as => :fronts_signin
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist
@@ -37,7 +39,7 @@ Store::Application.routes.draw do
   match 'merchant_list/:id' => 'merchant_locations#index', :as => :merchant_list
   match 'coupon_list/:id' => 'coupons#index', :as => :coupon_list
 
-  root :to => 'users#home'
+  root :to => 'fronts#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

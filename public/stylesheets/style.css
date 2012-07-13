@@ -1,0 +1,39 @@
+body { margin:0; padding:0; background:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:13px; }
+/*common style here*/
+.fl { float:left; }
+.fr { float:right; } 
+.cl { clear:both; } 
+a, img { border:none; outline:0; } 
+ul, li { margin:0; padding:0; list-style:none; }
+h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
+#wrapper { margin:0; padding:0; }
+.container { margin:0 auto; width:1000px; background:#ececec;}
+/*Header Part style here*/
+.topbox { background:#414141; height:42px; padding:0 10px;  }
+.topbox ul { width:371px; float:right; }  
+.topbox ul li { padding:15px 12px; background:url(../images/sap.jpg) left center no-repeat; font-size:15px; font-weight:normal; color:#fff; display:inline; line-height:42px; } 
+.topbox ul li a { color:#fff; text-decoration:none; }
+.topbox ul li a:hover { color:#fff; text-decoration:underline; }
+.socialbox { width:80px; padding-top:8px; height:34px; float:right; text-align:right; background:url(../images/sap.jpg) left no-repeat; }
+.socialbox img { margin:0 0 0 10px; }
+.main-containt { padding:0 9px; }
+.cuponbox { padding:10px 0 0 0;}
+.cuponbox-left { width:315px; float:left; text-align:left; padding:10px 0 0 15px;} 
+.cuponbox-right { float:left; text-align:right; padding-right:15px;} 
+.citybox { margin-bottom:10px; padding:10px 0; background:url(../images/line.jpg) bottom repeat-x; font-weight:bold; font-size:14px; }
+.citybox ul { margin:0; }
+.citybox ul li { margin:0 12px 0 0; color:#666; display:inline; }
+.citybox ul li img { margin:0 5px -5px 0; }
+.citybox ul li a {  color:#666; text-decoration:none; }
+.citybox ul li a:hover { color:#666; text-decoration:none; }
+.citybox ul li+li { color:#ca5298 }
+.citybox ul li+li a {  color:#ca5298; text-decoration:none; }
+.citybox ul li+li+li { color:#84d4da }
+.citybox ul li+li+li a {  color:#84d4da; text-decoration:none; }
+.middlebox { padding: 0;}
+.footer { background:#414141; height:42px; font-size:12px; color:#fff; line-height:42px; }
+.footerleft { width:490px; padding:0 0 0 10px; float:left; }
+.footerleft a { padding:0 5px; color:#fff; text-decoration:none; }
+.footerleft a:hover { color:#fff; text-decoration:underline; } 
+.footerright { width:490px; padding:0 10px 0 0; float:right; text-align:right; }
+

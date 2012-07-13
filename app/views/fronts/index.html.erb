@@ -1,2 +1,82 @@
-<h1>Front#index</h1>
-<p>Find me in app/views/front/index.html.erb</p>
+    	<div class="row-fluid">
+        	<div class="span12">
+
+				<section id="layout">
+					<% if session[:user_id].nil? %>
+						<%= render 'signin' %>
+					<% end %>
+
+
+				<% @tmp_cnt = 1 %>
+				<% @tmp_odd = 1 %>
+				<div class="row-fluid posRel">
+				<% @o_all.each do |row| %>
+					<% if @tmp_cnt % 3 == 0 %>
+						<div class="row-fluid posRel">
+					<% end -%>
+					<% @v = (@tmp_odd == 1) ? 'first' : ((@tmp_odd == 2) ? 'second' : 'third') %>
+					
+
+					<div class="span4" id="<%= @v %>_<%= row.id.to_i %>">
+						<div class="row-fluid">
+							<div class="categoryBox hero-unit">
+								<h2>
+									<%= row.name %>
+								</h2>
+								<ul class="nav-list">
+									<% if row.image? %>
+										<%= image_tag row.image_url(:thumb), :width => 80, :height => 80 %>
+									<% else %>
+										<%= image_tag "rails.png", :width => 80, :height => 80 %>
+									<% end %>	
+									<li class="expandCatBox readMore plus"><a title="Näytä kaikki" id="<%= @v %>_<%= row.id.to_i %>">
+										<%= t("general.more") %>
+									</a> </li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div style="display:none;z-index:1;position:absolute;margin-left:0;left:0px;" class="span4" id="<%= @v %>_detailed_<%= row.id.to_i %>">
+						<div class="row-fluid">
+							<div class="span12">
+								
+									<div class="categoryBox hero-unit expandBox">
+										<h2>
+											<%= row.name %>
+										</h2>
+										<ul id="keywordList_<%= row.id.to_i %>" class="nav-list">
+										<% if row.image? %>
+											<%= image_tag row.image_url(:thumb), :width => 80, :height => 80 %>
+										<% else %>
+											<%= image_tag "rails.png", :width => 80, :height => 80 %>
+										<% end %>
+										Address:     <%= row.address %><br />
+										Highlights:	 <%= row.highlights %> <br />
+										Term & Conditions:	<%= row.term_conditions %>
+											<li class="readMore minus">
+												<a id="<%= @v %>_<%= row.id.to_i %>" title="Piilota"><%= t("general.close") %></a>
+											</li>
+										</ul>
+									</div>
+								
+							</div>
+						</div>
+					</div>
+				<% if @tmp_cnt % 3 == 0 %>
+					</div>
+				<% end -%>
+					<% @tmp_cnt = @tmp_cnt + 1 %>
+					<% @tmp_odd = @tmp_odd + 1 %>
+					<% if @tmp_odd == 3 %>
+						<% @tmp_odd = 0 %>
+					<% end %>
+				<% end %>
+			</div>
+
+
+
+				    <div id="favListContent" class="favorite-list"></div>
+				</section>
+		    </div>
+		</div>

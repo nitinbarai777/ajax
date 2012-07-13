@@ -1,0 +1,55 @@
+					<div class="row-fluid">
+						<div class="span8">
+							<div class="row-fluid hero-unit cmsbanner mHeight">
+    	    					<h1>Couponmandi</h1>
+									<p class="defaultContent">
+									Couponmandi text
+	        						<span><a id="moreLink" class="contentLink" title="Näytä lisää">Expand...</a></span>
+									</p>
+									<p id="fullContent" style="display:none;">&nbsp;
+										Couponmandi text more details
+										<span>&nbsp;<a id="lessLink" class="contentLink" title="Näytä vähemmän">Collapse</a></span>
+									</p>
+				    	  	</div>
+						</div>
+
+						<div class="span4" id="newsList">
+							<div class="row-fluid">
+								<div class="newsEventBox hero-unit">
+									<h2>
+										<div class="row-fluid">
+											<div class="span12">SIGN IN</div>
+										</div>
+									</h2>
+										  <% flash.each do |name, msg| %>
+											<%= content_tag :div, msg, :id => "flash_#{name}" %>
+										  <% end %>
+											<%= form_for(@user_session, :url => fronts_signin_path) do |f| %>
+											  <% if @user_session.errors.any? %>
+												<div id="error_explanation">
+												  <ul>
+												  <% @user_session.errors.full_messages.each do |msg| %>
+													<li><%= msg %></li>
+												  <% end %>
+												  </ul>
+												</div>
+											  <% end %>
+
+											  <div class="field">
+												<%= f.label :username %><br />
+												<%= f.text_field :username %>
+											  </div>
+											  <div class="field">
+												<%= f.label :password %><br />
+												<%= f.password_field :password %>
+											  </div>
+											  <div class="actions">
+												<%= f.submit :Login %>
+											  </div>
+											<% end %>
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearb"></div>
