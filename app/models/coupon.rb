@@ -12,4 +12,14 @@ class Coupon < ActiveRecord::Base
       scoped
     end
   end
+
+  def self.search_filterby_city(id)
+    if !id.nil?
+	  #joins('LEFT OUTER JOIN merchant_locations ON merchant_locations.id = coupons.merchant_location_id')
+   	  joins(:merchant_location).where("merchant_locations.city_id" => id)
+	else
+      scoped
+    end
+  end
+
 end

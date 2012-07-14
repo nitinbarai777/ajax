@@ -2,7 +2,11 @@ class FrontsController < ApplicationController
   layout "fronts"
   def index
     @user_session = UserSession.new
-    @o_all = Coupon.paginate(:per_page => 9, :page => params[:page])
+	unless params[:id].nil?
+		@o_all = Coupon.search_filterby_city(params[:id].to_i).paginate(:per_page => 9, :page => params[:page])
+	else
+	    @o_all = Coupon.paginate(:per_page => 9, :page => params[:page])
+	end
   end
 
   def signin
@@ -38,6 +42,22 @@ class FrontsController < ApplicationController
       render :action => 'new'
     end
   end
+
+
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:user][:id])
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Profile updated successfully."
+   	  redirect_to fronts_path
+    else
+      render :action => 'edit'
+    end
+  end
+
 
 
   # DELETE /user_sessions/1

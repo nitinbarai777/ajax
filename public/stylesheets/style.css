@@ -10,7 +10,7 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .container { margin:0 auto; width:1000px; background:#ececec;}
 /*Header Part style here*/
 .topbox { background:#414141; height:42px; padding:0 10px;  }
-.topbox ul { width:375px; float:right; }  
+.topbox ul { width:auto; float:right; }  
 .topbox ul li { padding:15px 12px; background:url(../images/sap.jpg) left center no-repeat; font-size:15px; font-weight:normal; color:#fff; display:inline; line-height:42px; } 
 .topbox ul li a { color:#fff; text-decoration:none; }
 .topbox ul li a:hover { color:#fff; text-decoration:underline; }

@@ -33,7 +33,9 @@ Store::Application.routes.draw do
   match 'log_out' => 'fronts#destroy', :as => :log_out
   match '/fronts_signin' => 'fronts#signin', :as => :fronts_signin
   match '/fronts_signup' => 'fronts#create', :as => :fronts_signup
-
+  match '/profile_edit/:id' => 'fronts#edit', :as => :profile_edit
+  match '/profile_update' => 'fronts#update', :as => :profile_update
+  match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist

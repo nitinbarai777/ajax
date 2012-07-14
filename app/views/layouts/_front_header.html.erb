@@ -7,6 +7,7 @@
 		                <li><a href="#">How it Works?</a></li>
 		                <li class="last"><a href="#">Contact Us</a></li>
 						<% if !session[:user_id].nil? %>
+							<li><%= link_to "Profile", profile_edit_path(current_user.id)%></li>
 							<li><%= link_to "Logout", :log_out %></li>
 						<% else %>
 					        <li><%= link_to "Register", new_front_path%></li>
@@ -20,11 +21,4 @@
 				    <div class="cuponbox-left"><%= image_tag "cupon-logo.jpg" %></div>
 				    <div class="cuponbox-right"><%= image_tag "cupon-img.jpg" %></div>
 				    <div class="cl"></div>
-	            </div>
-    	        <div class="citybox">
-		        	<ul>
-		            	<li><span>Filter By:</span></li>
-		                <li><a href="#"><%= image_tag "pink-check.jpg" %>Ahmedabad</a></li>
-		                <li><a href="#"><%= image_tag "green-check.jpg" %>Baroda</a></li>
-		            </ul>
 	            </div>
