@@ -1,4 +1,6 @@
 Store::Application.routes.draw do
+  
+
   get "front/index"
 
   resources :fronts
@@ -36,6 +38,7 @@ Store::Application.routes.draw do
   match '/profile_edit/:id' => 'fronts#edit', :as => :profile_edit
   match '/profile_update' => 'fronts#update', :as => :profile_update
   match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
+  match '/forgot_password' => 'fronts#forgot_password', :as => :forgot_password
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist
@@ -43,7 +46,12 @@ Store::Application.routes.draw do
   match 'merchant_list/:id' => 'merchant_locations#index', :as => :merchant_list
   match 'coupon_list/:id' => 'coupons#index', :as => :coupon_list
 
+
+  match '/getArea' => 'merchant_locations#list_area_by_city', :as => :list_area_by_city
+
+
   root :to => 'fronts#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

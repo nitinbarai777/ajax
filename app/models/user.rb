@@ -10,10 +10,9 @@ class User < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('username LIKE ? OR email LIKE ?', "%#{search}%", "%#{search}%")
+      where('((username LIKE ? OR email LIKE ? OR mobile_number LIKE ?) AND is_admin != ?)', "%#{search}%", "%#{search}%", "%#{search}%", 1)
     else
-      scoped
+      where('is_admin != ?', 1)
     end
   end
-
 end

@@ -7,8 +7,8 @@
   </p>
 
   <p>
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+    <%= f.label :discount %><br />
+    <%= f.text_field :price %> %
   </p>
 
   <p>
@@ -60,5 +60,7 @@
     <%= f.label :is_active %><br />
     <%= f.check_box :is_active %>
   </p>
-  <p><%= f.submit :value => t("general.save") %></p>
+  <p><%= f.submit :value => t("general.save") %>
+<%= link_to t("general.back"), coupons_path %>
+</p>
 <% end %>

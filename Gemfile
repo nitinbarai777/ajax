@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem "rmagick"
 gem "carrierwave"
 gem "mail"
+gem "ckeditor", "3.7.1"
+gem 'omniauth-facebook'
 
 # Use unicorn as the web server
 # gem 'unicorn'

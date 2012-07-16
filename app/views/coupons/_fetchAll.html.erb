@@ -1,10 +1,10 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
-<b><%= t("general.merchant") %></b>: <%= Merchant.find(session[:merchant_id].to_i).name %> -> <%= MerchantLocation.find(session[:merchant_location_id].to_i).city.name %> -> <%= MerchantLocation.find(session[:merchant_location_id].to_i).area.name %>
+
 <table class="pretty" width="100%">
   <tr>
     <th><%= sortable "name" %></th>
-    <th><%= sortable "price" %></th>
+    <th><%= sortable "discount" %></th>
     <th><%= sortable "free_coupon" %></th>
     <th><%= sortable "min_purchase" %></th>
 
@@ -14,7 +14,7 @@
   <% for o_row in @o_all %>
     <tr>
       <td><%= o_row.name %></td>
-      <td><%= o_row.price %></td>
+      <td><%= o_row.price %> %</td>
       <td><%= o_row.free_coupon %></td>
       <td><%= o_row.min_purchase %></td>
       <td><%= o_row.is_active ? image_tag("Yes.gif") : image_tag("No.gif") %></td>

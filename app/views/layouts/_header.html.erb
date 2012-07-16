@@ -1,10 +1,21 @@
 <header>
-    <%= link_to(image_tag("login-logo.jpg", :alt => "Sample App", :class => "round"), "/admin") %>
+    <%= link_to(image_tag("cupon-logo.jpg", :alt => "CouponMandi", :class => "round"), "/admin") %>
     <nav class="round">
       <ul>
 		 <% if !session[:user_id].nil? %>
 		   <li>Welcome, <%= current_user.username %></li>
+			<li><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
+			<li><%= link_to "Logout", :logout%></li>
+		<% else %>
+			<li>Welcome, Admin</li>
 			<li><%= link_to "Home", root_path %></li>
+		<% end %>
+      </ul>
+    </nav>
+<br />
+    <nav class="round">
+      <ul>
+		 <% if !session[:user_id].nil? %>
 		    <li><%= link_to "Users", users_path %></li>
 		    <li><%= link_to "Gateway", gateways_path %></li>
 		    <li><%= link_to "Carrier", carriers_path %></li>
@@ -14,12 +25,8 @@
 		    <li><%= link_to "Area", areas_path %></li>
 		    <li><%= link_to "Merchant", merchants_path %></li>
 		    <li><%#= link_to "Merchant Location", merchant_locations_path %></li>
-			<li><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
-			<li><%= link_to "Logout", :logout%></li>
-		<% else %>
-			<li>Welcome, Admin</li>
-			<li><%= link_to "Home", root_path %></li>
 		<% end %>
       </ul>
     </nav>
+<br />
 </header>

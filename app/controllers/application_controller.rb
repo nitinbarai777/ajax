@@ -17,11 +17,19 @@ class ApplicationController < ActionController::Base
   def require_user
     if session[:user_id].nil?
         redirect_to :controller => "user_sessions", :action => "new"
-      end
+    end
   end
   def require_admin
     if current_user.is_admin != 1
         redirect_to :controller => "fronts", :action => "index"
       end
+  end
+  def authenticate_password(email)
+      user_exists = User.exists?(email: email)
+      if user_exists
+		user = User.find_by_email(email)
+		return user
+	  end
+	  return false	
   end
 end

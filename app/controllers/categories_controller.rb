@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_filter :require_admin
 
   # fetch all records
   def index

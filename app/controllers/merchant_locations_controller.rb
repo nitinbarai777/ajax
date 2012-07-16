@@ -1,5 +1,6 @@
 class MerchantLocationsController < ApplicationController
   helper_method :sort_column, :sort_direction
+  before_filter :require_admin
 
   # fetch all records
   def index
@@ -53,7 +54,9 @@ class MerchantLocationsController < ApplicationController
     flash[:notice] = t("general.successfully_destroyed")
     redirect_to merchant_locations_url
   end
-  
+  def list_area_by_city
+	@o_area = Area.where(:city_id => params[:id])
+  end
   private
   
   # sort column private method

@@ -58,7 +58,22 @@ class FrontsController < ApplicationController
     end
   end
 
-
+  def forgot_password
+	@user = User.new
+	if !params[:user].blank?
+		if params[:user][:email].blank?
+			flash[:error_login] = 'Email Required.'
+			redirect_to :action => "forgot_password"
+		elsif user = authenticate_password(params[:user][:email])
+			UserMailer.forgot_password_confirmation(user).deliver
+	  		flash[:error_login] = 'Password sent to your email address'
+			redirect_to fronts_path
+		else
+	  		flash[:error_login] = 'No user exists for provided email address'
+			redirect_to :action => "forgot_password"
+		end
+	end
+  end	
 
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml

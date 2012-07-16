@@ -28,3 +28,18 @@ en:
     merchant_details: Merchant Details
     coupon_details: Coupon Details
     merchant: Merchant
+    admin_panel: Admin Panel
+    merchant_locations: Merchant Locations
+    locations: Locations
+    merchants: Merchants
+    coupons: coupons
+    users: Users
+    gateways: Gateways
+    coupon_types: Coupon Types
+    cities: Cities
+    categories: Categories
+    carriers: Carriers
+    areas: Areas
+    edit_user: Edit User
+    close: Close
+    more: More	

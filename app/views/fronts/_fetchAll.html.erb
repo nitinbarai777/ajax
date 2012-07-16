@@ -19,9 +19,9 @@
 					<% end %>
 
 
-				<% @tmp_cnt = 1 %>
+				<% @tmp_cnt = 0 %>
 				<% @tmp_odd = 1 %>
-				<div class="row-fluid posRel">
+
 				<% @o_all.each do |row| %>
 					<% if @tmp_cnt % 3 == 0 %>
 						<div class="row-fluid posRel">
@@ -32,19 +32,25 @@
 					<div class="span4" id="<%= @v %>_<%= row.id.to_i %>">
 						<div class="row-fluid">
 							<div class="categoryBox hero-unit">
-								<h2>
-									<%= row.name %>
-								</h2>
-								<ul class="nav-list">
+                            
+								<div class="boxdetail">
 									<% if row.image? %>
-										<%= image_tag row.image_url(:thumb), :width => 80, :height => 80 %>
+										<%= image_tag row.image_url(:thumb) %>
 									<% else %>
-										<%= image_tag "rails.png", :width => 80, :height => 80 %>
-									<% end %>	
+										<%= image_tag "green-chillies.jpg" %>
+									<% end %>                                
+                                </div>
+                                 <div class="boxdetail-title titlebg1">
+                                <h4><%= row.name %></h4>
+                                <%= row.price %>% Discount<br />
+Monday To Saturday
+                                <ul class="nav-list">
 									<li class="expandCatBox readMore plus"><a title="Näytä kaikki" id="<%= @v %>_<%= row.id.to_i %>">
 										<%= t("general.more") %>
 									</a> </li>
 								</ul>
+                                </div>
+                                
 							</div>
 						</div>
 					</div>
@@ -54,37 +60,73 @@
 							<div class="span12">
 								
 									<div class="categoryBox hero-unit expandBox">
-										<h2>
-											<%= row.name %>
-										</h2>
-										<ul id="keywordList_<%= row.id.to_i %>" class="nav-list">
+                                    <div class="expandtext">
+										<div class="expand-one">
+                                        <div class="fimg">
+                                        <strong>Flat <%= row.price %> % off on Total Bill Value</strong><br />
 										<% if row.image? %>
 											<%= image_tag row.image_url(:thumb), :width => 80, :height => 80 %>
 										<% else %>
 											<%= image_tag "rails.png", :width => 80, :height => 80 %>
-										<% end %>
-										Address:     <%= row.address %><br />
-										Highlights:	 <%= row.highlights %> <br />
-										Term & Conditions:	<%= row.term_conditions %>
+										<% end %>                                        
+                                        </div>
+                                        </div>
+                                        <div class="expand-two">
+                                        <div class="line">
+                                        <div class="text">
+                                        <strong>Coupon Available For :</strong><br />
+                                        Monday To Saturday
+                                        </div>
+                                        <div class="cl"></div>
+                                        </div>
+                                        
+											<div class="cupontext">                 
+                                             	<strong>Name:</strong> 
+												<%= row.name %>
+											</div>
+                                             
+                                        <div class="cupontext">
+	                                        <strong>Address:</strong> 
+											<%= row.address.html_safe %>
+										 </div>
+                                        
+										<!--<div class="cupontext">
+	                                        <strong>Highlights:</strong>
+											<%#= row.highlights.html_safe %>
+                                        </div>-->
+                                            
+										<div class="cupontext">
+                            	            <strong>Term & Conditions:</strong>
+											<%= row.term_conditions.html_safe %> 
+                                        </div>
+
+										<ul id="keywordList_<%= row.id.to_i %>" class="nav-list">
 											<li class="readMore minus">
-												<a id="<%= @v %>_<%= row.id.to_i %>" title="Piilota"><%= t("general.close") %></a>
+												<a id="<%= @v %>_<%= row.id.to_i %>" title="Close"><%= image_tag "close.png" %></a>
 											</li>
 										</ul>
+                                        <div class="getcupon">
+                                        <div class="whitebtn"><a href="#">GET COUPON</a></div>
+                                        </div>
+                                        </div>
+                                        
+                                        </div>
 									</div>
 								
 							</div>
 						</div>
 					</div>
-				<% if @tmp_cnt % 3 == 0 %>
-					</div>
-				<% end -%>
+
 					<% @tmp_cnt = @tmp_cnt + 1 %>
 					<% @tmp_odd = @tmp_odd + 1 %>
 					<% if @tmp_odd == 3 %>
 						<% @tmp_odd = 0 %>
 					<% end %>
+				<% if @tmp_cnt % 3 == 0 && @tmp_cnt != 1 %>
+					</div>
+				<% end -%>
 				<% end %>
-			</div>
+
 
 
 

@@ -1,6 +1,5 @@
 <%= hidden_field_tag :direction, params[:direction] %>
 <%= hidden_field_tag :sort, params[:sort] %>
-<b><%= t("general.merchant") %></b>: <%= Merchant.find(session[:merchant_id].to_i).name %>
 <table class="pretty" width="100%">
   <tr>
     <th><%= sortable "contact_person" %></th>

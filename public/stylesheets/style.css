@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .cuponbox { padding:10px 0 0 0;}
 .cuponbox-left { width:315px; float:left; text-align:left; padding:10px 0 0 15px;} 
 .cuponbox-right { float:left; text-align:right; padding-right:15px;} 
-.citybox { margin-bottom:10px; padding:10px 0; background:url(../images/line.jpg) bottom repeat-x; font-weight:bold; font-size:14px; }
+.citybox { margin-bottom:15px; padding:10px 0; background:url(../images/line.jpg) bottom repeat-x; font-weight:bold; font-size:14px; }
 .citybox ul { margin:0; }
 .citybox ul li { margin:0 12px 0 0; color:#666; display:inline; }
 .citybox ul li img { margin:0 5px -5px 0; }
@@ -32,8 +32,25 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .citybox ul li+li+li a {  color:#84d4da; text-decoration:none; }
 .middlebox { padding: 0;}
 .footer { background:#414141; height:42px; font-size:12px; color:#fff; line-height:42px; }
-.footerleft { width:490px; padding:0 0 0 10px; float:left; }
+.footerleft { width:470px; padding:0 0 0 10px; float:left; }
 .footerleft a { padding:0 5px; color:#fff; text-decoration:none; }
 .footerleft a:hover { color:#fff; text-decoration:underline; } 
 .footerright { width:490px; padding:0 10px 0 0; float:right; text-align:right; }
+
+.boxdetail {  height:160px; padding:10px 0;text-align:center; }
+
+.boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:50px; padding:5px 10px; font-size:11px; color:#fff; line-height:14px; }
+.boxdetail-title.titlebg1 {
+ -webkit-border-radius:0 0 4px 4px;  -moz-border-radius:0 0 4px 4px;  border-radius:0 0 4px 4px;
+background: #c65095; /* Old browsers */
+background: -moz-linear-gradient(top,  #c65095 0%, #b54a89 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c65095), color-stop(100%,#b54a89)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #c65095 0%,#b54a89 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', endColorstr='#b54a89',GradientType=0 ); /* IE6-9 */ }
+.boxdetail-title h4 { margin:0; padding:0; font-size:12px; font-weight:bold; color:#3c182d; text-transform:uppercase; font-family:Arial, Helvetica, sans-serif; }
+
+
 

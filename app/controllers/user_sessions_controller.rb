@@ -4,12 +4,16 @@ class UserSessionsController < ApplicationController
   # GET /user_sessions/new
   # GET /user_sessions/new.xml
   def new
-    @user_session = UserSession.new
+    if !session[:user_id].nil?
+        redirect_to :controller => "users", :action => "index"
+    else
+		@user_session = UserSession.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml { render :xml => @user_session }
-    end
+		respond_to do |format|
+		  format.html # new.html.erb
+		  format.xml { render :xml => @user_session }
+		end
+	end
   end
 
 

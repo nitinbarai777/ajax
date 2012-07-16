@@ -8,5 +8,7 @@
     <%= f.label :is_active %><br />
     <%= f.check_box :is_active %>
   </p>
-  <p><%= f.submit :value => t("general.save") %></p>
+  <p><%= f.submit :value => t("general.save") %>
+<%= link_to t("general.back"), coupontypes_path %>
+</p>
 <% end %>

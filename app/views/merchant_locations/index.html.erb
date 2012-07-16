@@ -1,4 +1,4 @@
-<% title t("general.all_records") %>
+<h3><%= Merchant.find(session[:merchant_id].to_i).name %>'s <%= t("general.locations") %></h3>
 
 <%= form_tag merchant_locations_path, :method => 'get', :id => "div_update_search" do %>
   <p>

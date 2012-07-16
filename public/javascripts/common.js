@@ -1,4 +1,15 @@
+
+
 $(document).ready(function() {
+
+   if ($('textarea').length > 0) {       
+     var data = $('textarea');
+     $.each(data, function(i) {
+       CKEDITOR.replace(data[i].id);
+     });     
+   }
+
+
 	$('#moreLink').click(function(){
 		$('#moreLink').hide();
 		$('#fullContent').slideDown(function(){
@@ -108,4 +119,18 @@ function ajaxCallForKeyword(position,snSiteId,ssCulture,snCategoryId,ssCategoryI
 		$('#'+returnId).html(data);
 	  }
     });*/
+}
+
+
+function callAjaxRequest(snCityId, ssUrl, ssUpdateDivId)
+{
+	jQuery.ajax({
+		type:'GET',
+		dataType:'html',
+		data:{id: snCityId},
+		url:ssUrl,
+		success:function(result){
+		    $("#div_update_area").html(result);
+		}
+	})
 }

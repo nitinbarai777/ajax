@@ -5,7 +5,7 @@ class Merchant < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('name LIKE ?', "%#{search}%")
+      where('name LIKE ? OR email LIKE ? OR url LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end

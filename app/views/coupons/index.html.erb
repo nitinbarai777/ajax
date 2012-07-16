@@ -1,4 +1,4 @@
-<% title t("general.all_records") %>
+<h3><%= Merchant.find(session[:merchant_id].to_i).name %>'s <%= t("general.coupons") %></b>:  <%= MerchantLocation.find(session[:merchant_location_id].to_i).city.name %> -> <%= MerchantLocation.find(session[:merchant_location_id].to_i).area.name %></h3>
 
 <%= form_tag coupons_path, :method => 'get', :id => "div_update_search" do %>
   <p>

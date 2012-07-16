@@ -16,5 +16,7 @@
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </p>
-  <p><%= f.submit :value => t("general.save") %></p>
+  <p><%= f.submit :value => t("general.save") %>
+<%= link_to t("general.back"), merchants_path %>
+</p>
 <% end %>
