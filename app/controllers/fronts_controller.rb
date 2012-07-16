@@ -19,7 +19,7 @@ class FrontsController < ApplicationController
 		redirect_to fronts_path
 	elsif @user_session.save
 		session[:user_id] = current_user.id
-		flash[:error_login] = 'Login successfully.'
+		flash[:success_msg] = 'Login successfully.'
 		redirect_to fronts_path
     else
   		flash[:error_login] = 'Credentials you entered are not valid.Please check the spelling for both username and password.'
@@ -36,7 +36,7 @@ class FrontsController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	  UserMailer.registration_confirmation(@user).deliver
-      flash[:notice] = "Successfully Registered."
+      flash[:success_msg] = "Successfully Registered."
 	  redirect_to fronts_path
     else
       render :action => 'new'
@@ -51,7 +51,7 @@ class FrontsController < ApplicationController
   def update
     @user = User.find(params[:user][:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Profile updated successfully."
+      flash[:success_msg] = "Profile updated successfully."
    	  redirect_to fronts_path
     else
       render :action => 'edit'
@@ -62,18 +62,74 @@ class FrontsController < ApplicationController
 	@user = User.new
 	if !params[:user].blank?
 		if params[:user][:email].blank?
-			flash[:error_login] = 'Email Required.'
+			flash[:error_msg] = 'Email Required.'
 			redirect_to :action => "forgot_password"
 		elsif user = authenticate_password(params[:user][:email])
-			UserMailer.forgot_password_confirmation(user).deliver
-	  		flash[:error_login] = 'Password sent to your email address'
+			new_pass = SecureRandom.hex(5)
+		    user.password = new_pass
+		    user.password_confirmation = new_pass
+			user.save
+			UserMailer.forgot_password_confirmation(user, new_pass).deliver
+	  		flash[:success_msg] = 'Password has been sent to your email address.'
 			redirect_to fronts_path
 		else
-	  		flash[:error_login] = 'No user exists for provided email address'
+	  		flash[:error_msg] = 'No user exists for provided email address.'
 			redirect_to :action => "forgot_password"
 		end
 	end
   end	
+
+=begin
+  def change_password
+	@user = User.new
+	if !params[:user].blank?
+		if params[:user][:old_password].blank?
+			flash[:error_msg] = 'Old password Required.'
+			redirect_to :action => "change_password"
+		elsif params[:user][:new_password].blank?
+			flash[:error_msg] = 'New password Required.'
+			redirect_to :action => "change_password"
+		elsif params[:user][:new_password].to_s != params[:user][:password_confirmation].to_s
+			flash[:error_msg] = 'Password does not match.'
+			redirect_to :action => "change_password"
+		elsif user = authenticate_change_password(params[:user][:old_password])
+		    user.password = params[:user][:new_password]
+		    user.password_confirmation = params[:user][:new_password]
+			user.save
+	  		flash[:success_msg] = 'New password has been changed successfully.'
+			redirect_to fronts_path
+		else
+	  		flash[:error_msg] = 'Old password is wrong.'
+			redirect_to :action => "change_password"
+		end
+	end	
+  end
+=end
+  def change_password
+	if !params[:user].blank?
+		if params[:user][:password].blank?
+			flash[:error_msg] = 'Password Required.'
+			redirect_to :action => "change_password"
+		elsif params[:user][:password].to_s != params[:user][:password_confirmation].to_s
+			flash[:error_msg] = 'Password does not match.'
+			redirect_to :action => "change_password"
+		else
+			@user = User.find(current_user.id)
+			@user.password = params[:user][:password]
+			@user.password_confirmation = params[:user][:password_confirmation]
+			if @user.save
+			  flash[:success_msg] = "Password successfully updated"
+			  redirect_to fronts_path
+			else
+			  flash[:success_msg] = "Password does not updated."
+			  render :action => :change_password
+			end
+		end
+	else
+		@user = User.new
+	end
+  end
+
 
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml

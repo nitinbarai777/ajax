@@ -25,9 +25,13 @@
 											<div class="span12">SIGN IN</div>
 										</div>
 									</h2>
-										  <% flash.each do |name, msg| %>
-											<%= content_tag :div, msg, :id => "flash_#{name}" %>
-										  <% end %>
+										<div class="errormsg">
+											<% if flash[:error_login] %>
+												<div id="notice"><%= flash[:error_login] %></div>
+											<% end %>
+
+                                          </div>
+
 
 											<%= form_for(@user_session, :url => fronts_signin_path) do |f| %>
 											  <% if @user_session.errors.any? %>
@@ -49,7 +53,7 @@
 												<%= f.password_field :password %>
 											  </div>
                                               <div class="rembox"><input type="checkbox" name="checkbox" id="checkbox" />Rember Me
-                                              <span><a href="">Forgot password? </a></span>
+                                              <span><%= link_to "Forgot password?", forgot_password_path %></span>
                                               </div>
 											  <div class="actions">
 												<%= f.submit :Login %>

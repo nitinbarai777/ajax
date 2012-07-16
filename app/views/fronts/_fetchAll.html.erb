@@ -1,7 +1,14 @@
 		<script src="/javascripts/common.js?1342171392" type="text/javascript"></script>
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, :id => "flash_#{name}" %>
-      <% end %>
+	  <div class="successmsg">
+
+	<% if flash[:success_msg] %>
+		<div id="notice"><%= flash[:success_msg] %></div>
+	<% end %>
+	<% if flash[:flash_notice] %>
+		<div id="notice"><%= flash[:flash_notice] %></div>
+	<% end %>
+
+	  </div>	
         <div class="citybox">
         	<ul>
             	<li><span>Filter By:</span></li>
@@ -37,7 +44,7 @@
 									<% if row.image? %>
 										<%= image_tag row.image_url(:thumb) %>
 									<% else %>
-										<%= image_tag "green-chillies.jpg" %>
+										<%= image_tag "cupon-logo.jpg" %>
 									<% end %>                                
                                 </div>
                                  <div class="boxdetail-title titlebg1">
@@ -65,9 +72,9 @@ Monday To Saturday
                                         <div class="fimg">
                                         <strong>Flat <%= row.price %> % off on Total Bill Value</strong><br />
 										<% if row.image? %>
-											<%= image_tag row.image_url(:thumb), :width => 80, :height => 80 %>
+											<%= image_tag row.image_url(:thumb), :width => 100, :height => 70 %>
 										<% else %>
-											<%= image_tag "rails.png", :width => 80, :height => 80 %>
+											<%= image_tag "cupon-logo.jpg", :width => 100, :height => 70 %>
 										<% end %>                                        
                                         </div>
                                         </div>

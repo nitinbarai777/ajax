@@ -32,4 +32,13 @@ class ApplicationController < ActionController::Base
 	  end
 	  return false	
   end
+  def authenticate_change_password(password)
+      user_exists = User.exists?(password: password)
+      if user_exists
+		user = User.find_by_password(password)
+		return user
+	  end
+	  return false	
+  end
+
 end

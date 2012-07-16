@@ -121,6 +121,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.33)
+    webget_ruby_secure_random (1.2.1)
 
 PLATFORMS
   ruby
@@ -136,4 +137,5 @@ DEPENDENCIES
   rails (= 3.2.6)
   rmagick
   sqlite3
+  webget_ruby_secure_random
   will_paginate!

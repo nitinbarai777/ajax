@@ -17,6 +17,7 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .socialbox { width:80px; padding-top:8px; height:34px; float:right; text-align:right; background:url(../images/sap.jpg) left no-repeat; }
 .socialbox img { margin:0 0 0 10px; }
 .main-containt { padding:0 9px; }
+.main-containt h3{ margin-left:15px; }
 .cuponbox { padding:10px 0 0 0;}
 .cuponbox-left { width:315px; float:left; text-align:left; padding:10px 0 0 15px;} 
 .cuponbox-right { float:left; text-align:right; padding-right:15px;} 
@@ -39,7 +40,7 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 
 .boxdetail {  height:160px; padding:10px 0;text-align:center; }
 
-.boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:50px; padding:5px 10px; font-size:11px; color:#fff; line-height:14px; }
+.boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:50px; padding:5px 10px; font-size:13px; color:#fff; line-height:14px; }
 .boxdetail-title.titlebg1 {
  -webkit-border-radius:0 0 4px 4px;  -moz-border-radius:0 0 4px 4px;  border-radius:0 0 4px 4px;
 background: #c65095; /* Old browsers */
@@ -50,7 +51,7 @@ background: -o-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* Opera 11.10+ *
 background: -ms-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #c65095 0%,#b54a89 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', endColorstr='#b54a89',GradientType=0 ); /* IE6-9 */ }
-.boxdetail-title h4 { margin:0; padding:0; font-size:12px; font-weight:bold; color:#3c182d; text-transform:uppercase; font-family:Arial, Helvetica, sans-serif; }
+.boxdetail-title h4 { margin:0; padding:0; font-size:14px; font-weight:bold; color:#3c182d; text-transform:uppercase; font-family:Arial, Helvetica, sans-serif; }
 
 
 

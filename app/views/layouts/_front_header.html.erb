@@ -8,6 +8,7 @@
 		                <li class="last"><a href="#">Contact Us</a></li>
 						<% if !session[:user_id].nil? %>
 							<li><%= link_to "Profile", profile_edit_path(current_user.id)%></li>
+							<li><%= link_to "Change Password", change_password_path %></li>
 							<li><%= link_to "Logout", :log_out %></li>
 						<% else %>
 					        <li><%= link_to "Register", new_front_path%></li>

@@ -39,6 +39,8 @@ Store::Application.routes.draw do
   match '/profile_update' => 'fronts#update', :as => :profile_update
   match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
   match '/forgot_password' => 'fronts#forgot_password', :as => :forgot_password
+  match '/change_password' => 'fronts#change_password', :as => :change_password
+
 
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist
