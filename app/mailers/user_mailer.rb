@@ -33,31 +33,8 @@ class UserMailer < ActionMailer::Base
     mail(:to => "#{user.username} <#{user.email}>", :subject => "CouponMandi::Password Reset", :body => body)
   end
 
-  def get_coupon_confirmation(user,coupon)
-
-	body = "Dear, #{user.username} <br />
-
-	Your Coupon Details: <br />
-
-	Your coupon code : 	QMQTH6 <br />
-
-	Offer place : 	Yahvi Restaurant <br />
-
-	Coupon valid From : 	16/07/12 <br />
-
-	Coupon valid upto : 	21/07/12 <br />
-
-	Discount : 	#{coupon.price} Percent <br />
-
-	Address: #{coupon.price.html_safe} <br />
-	Terms & Conditions: #{coupon.term_conditions.html_safe} <br />
-
-
-	Thank you, <br />
-
-	Couponmadi Team"
-	
-    mail(:to => "#{user.username} <#{user.email}>", :subject => "Your coupon code info for Coupon Mandi", :body => body.html_safe)
+  def get_coupon_confirmation(user,coupon, body)
+    mail(:to => "#{user.username} <#{user.email}>", :subject => "Your coupon code info for Coupon Mandi", :body => body, :content_type => "text/html")
   end
 
 end

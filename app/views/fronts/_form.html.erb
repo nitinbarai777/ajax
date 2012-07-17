@@ -68,7 +68,8 @@
   <div class="field">
     <%= f.label :mobile_number %>
     <%= f.text_field :mobile_number %><br />
-<span>Please enter your mobile number without 0 or +91</span>
+	<span>Please enter your mobile number without 0 or +91</span>
+
 	<% if @user.errors[:mobile_number].any? %>
 		<%= raw @user.errors[:mobile_number].first %>
 	<% end %>

@@ -105,10 +105,12 @@ Monday To Saturday
 		                                         	<strong>Name:</strong> 
 													<%= row.name %>
 												</div>
+												<% unless row.valid_from.nil? %>
 												<div class="cupontext">                 
 		                                         	<strong>Valid:</strong> 
 													From <%= row.valid_from %> To <%= row.valid_to %>
 												</div>
+												<% end %>
 				                                <div class="cupontext">
 					                                <strong>Address:</strong> 
 													<%= row.address.html_safe %>
@@ -134,7 +136,9 @@ Monday To Saturday
 												<% if session[:user_id].nil? %>
 													<%= link_to t("general.get_coupon"), "#", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
 												<% else %>
+													<div class="getcupon_load">
 													<%= link_to t("general.get_coupon"), get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
+													</div>
 												<% end %>	
 													</div>
 			                                    </div>

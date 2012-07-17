@@ -1,0 +1,36 @@
+<div class="main-containt ">
+	<div class="pagestext">
+		Dear, <%= user.username %> <br />
+		<h3>Your Coupon Details </h3>
+		<div class="contacttext">
+			<p><strong>Your coupon code:</strong><br />
+			QMQTH</p>
+		
+			<p><strong>Offer place:</strong><br />
+			Yahvi Restaurant</p>
+		
+			<p><strong>Coupon valid From:</strong><br />
+			<%= coupon.valid_from %></p>
+
+			<p><strong>Coupon valid To:</strong><br />
+			<%= coupon.valid_to %></p>
+		
+			<p><strong>Discount:</strong><br />
+			<%= coupon.price %> Percent</p>
+		</div>
+
+
+		<h3>Address</h3>
+		<div class="contacttext">
+			<p><%= coupon.address.html_safe %></p>
+		</div>
+
+		<h3>Terms & Conditions</h3>
+		<div class="contacttext">
+			<p><%= coupon.term_conditions.html_safe %></p>
+		</div>
+
+		Thank you, <br />
+		Couponmadi Team"
+	</div>
+</div>

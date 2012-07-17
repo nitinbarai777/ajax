@@ -134,13 +134,18 @@ class FrontsController < ApplicationController
 	unless params[:id].nil?
   	  @o_coupon = Coupon.find(params[:id])
 
-	  @o_userCoupon = UserCoupon.create :message => 'sample message', :message_id => '111', :message_status => 'DELIVRD'
-
+	  @o_userCoupon = UserCoupon.new
+	  @o_userCoupon.message = 'sample message'
+	  @o_userCoupon.message_id = '111'
+	  @o_userCoupon.message_status = 'DELIVRD'
 	  @o_userCoupon.user_id = current_user.id.to_i
 	  @o_userCoupon.coupon_id = params[:id].to_i
 	  @o_userCoupon.save
 
-	  UserMailer.get_coupon_confirmation(current_user, @o_coupon).deliver
+	  body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user, :coupon => @o_coupon}, :formats => [:html])
+	  body = body.html_safe
+
+	  UserMailer.get_coupon_confirmation(current_user, @o_coupon, body).deliver
 	  #flash[:success_msg] = 'The Discount Coupon is emailed to registered Email ID.'
 	end	
   end
@@ -159,8 +164,10 @@ class FrontsController < ApplicationController
   end
   def privacypolicy
   end
+
   def contactus
   end
+
   def terms
   end
 end

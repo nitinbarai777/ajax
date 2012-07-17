@@ -1,18 +1,18 @@
 					<div class="row-fluid">
 						<div class="span8">
 							<div class="row-fluid hero-unit cmsbanner mHeight">
-    	    					<h3><%= image_tag "cupon-logo.jpg", :width => 100, :height => 70 %> How it Works? </h3>
-									
-									<h4>It's Easy! It's Quick! It's Free!..... <span><a id="moreLink" class="contentLink" title="More"><%= image_tag "expand.png" %> </a></span></h4>
-	        				
-									<p id="fullContent" style="display:none;">
+
+									<h3>It's Easy! It's Quick! It's Free! </h3>
+                         <div class="registerbtn"> 
+							<%= link_to image_tag("register-btn.png"), new_front_path %>
+
+		          </div>
+                            
+									<p id="fullContent" style="display:block; font-size:15px;">
 										1. Register at <b>www.couponmandi.com</b><br />
 										2. Click  View Coupon Button to see the Coupon Details.<br />
 										3. Click  Get Coupon Button to get the Coupon by SMS.<br />
-										   The SMS you receive is the Coupon. Please show this SMS to get a Discount.<br />
-										   It's Easy! It's Quick! It's Free! &nbsp;&nbsp;<%= link_to "Not a member yet? Sign up", new_front_path%>&nbsp;&nbsp;
-
-										<span>&nbsp;<a id="lessLink" class="contentLink" title="Less"><%= image_tag "Collapse.png" %></a></span>
+										   The SMS you receive is the Coupon. Please show this SMS to get a Discount.
 									</p>
                                     
 				    	  	</div>

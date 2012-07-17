@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 
-	$('.getcupon a').click(function() {
+	$('.getcupon_load a').click(function() {
 		$('#load').show();
 	});
 

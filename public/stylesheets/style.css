@@ -39,12 +39,10 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .footerleft a { padding:0 5px; color:#fff; text-decoration:none; }
 .footerleft a:hover { color:#fff; text-decoration:underline; } 
 .footerright { width:490px; padding:0 10px 0 0; float:right; text-align:right; }
-
 .boxdetail {  height:160px; padding:10px 0;text-align:center; }
-
 .boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:50px; padding:5px 10px; font-size:13px; color:#fff; line-height:14px; }
 .boxdetail-title.titlebg1 {
- -webkit-border-radius:0 0 4px 4px;  -moz-border-radius:0 0 4px 4px;  border-radius:0 0 4px 4px;
+-webkit-border-radius:0 0 4px 4px;  -moz-border-radius:0 0 4px 4px;  border-radius:0 0 4px 4px;
 background: #c65095; /* Old browsers */
 background: -moz-linear-gradient(top,  #c65095 0%, #b54a89 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c65095), color-stop(100%,#b54a89)); /* Chrome,Safari4+ */
@@ -63,12 +61,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', end
 .contacttext p { margin:0; padding:0 0 10px 0; font-family:Arial, Helvetica, sans-serif;  font-size:13px; font-weight:normal; color:#414141; line-height:18px;}
 .profilebox { float:left; padding-top:15px;  }
 .profile-leftpart { width:475px; float:left; }
-.profile-leftpart span { font-size:11px; color:#CCCCCC; font-style:italic; display:block; margin-top:-12px; }
+.profile-leftpart span { font-size:11px; font-style:italic; display:block; margin-top:-12px; }
 .profile-leftpart form { margin-left:0;}
-
-
-#load {
-    background: url("../images/client/transparant.png") repeat scroll center top transparent;
+#load { background: url("../images/client/transparant.png") repeat scroll center top transparent;
     float: left;
     height: 430px;
     left: 0;
@@ -81,3 +76,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', end
     width: 1002px;
     z-index: 99;
 }
+.registerbtn { margin:0 auto; width:225px; height:50px; position:absolute; top:120px; top:275px; left:225px; }
