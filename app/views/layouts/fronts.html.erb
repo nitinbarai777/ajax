@@ -13,16 +13,20 @@
 	<%= javascript_include_tag "jquery_002.js" %>
 	<%= javascript_include_tag "common.js" %>
 
+	<%= stylesheet_link_tag "jquery-ui.css", "application" %>
+	<%= javascript_include_tag "jquery-ui.min.js" %>
+
+
   </head>
   <body>
 	<div id="wrapper">
 		<div class="row-fluid bgRight">
 			<div class="container">
 				<%= render 'layouts/front_header' %>
-				<div class="main-containt">
+				
 					<%= yield %>
 					<div class="cl"></div>
-				</div>
+				
 				<%= render 'layouts/front_footer' %>
 			<div>
 		<div>

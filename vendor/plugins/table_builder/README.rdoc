@@ -1,0 +1,5 @@
+= TableBuilder
+
+No longer maintained.
+Use the following instead:
+https://github.com/watu/table_builder

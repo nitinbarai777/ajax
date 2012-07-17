@@ -1,2 +1,2 @@
     <%= "Area" %>
-    <%= select_tag "area_id", options_for_select(["select city"] + @o_area.map { |c| [c.name, c.id] })  %>
+    <%= select_tag "merchant_location[area_id]", options_for_select(["select city"] + @o_area.map { |c| [c.name, c.id] })  %>

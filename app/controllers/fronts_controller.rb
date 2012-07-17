@@ -2,10 +2,16 @@ class FrontsController < ApplicationController
   layout "fronts"
   def index
     @user_session = UserSession.new
-	unless params[:id].nil?
+	if !params[:id].nil?
+		session[:city_id] = params[:id].to_i
 		@o_all = Coupon.search_filterby_city(params[:id].to_i).paginate(:per_page => 9, :page => params[:page])
+		@o_all_areas = Area.where(:city_id => session[:city_id])
+	elsif !params[:area_id].nil?
+		@o_all = Coupon.search_filterby_area(params[:area_id].to_i).paginate(:per_page => 9, :page => params[:page])
+		@o_all_areas = Area.where(:city_id => session[:city_id])
 	else
 	    @o_all = Coupon.paginate(:per_page => 9, :page => params[:page])
+		session[:city_id] = nil
 	end
   end
 
@@ -79,32 +85,6 @@ class FrontsController < ApplicationController
 	end
   end	
 
-=begin
-  def change_password
-	@user = User.new
-	if !params[:user].blank?
-		if params[:user][:old_password].blank?
-			flash[:error_msg] = 'Old password Required.'
-			redirect_to :action => "change_password"
-		elsif params[:user][:new_password].blank?
-			flash[:error_msg] = 'New password Required.'
-			redirect_to :action => "change_password"
-		elsif params[:user][:new_password].to_s != params[:user][:password_confirmation].to_s
-			flash[:error_msg] = 'Password does not match.'
-			redirect_to :action => "change_password"
-		elsif user = authenticate_change_password(params[:user][:old_password])
-		    user.password = params[:user][:new_password]
-		    user.password_confirmation = params[:user][:new_password]
-			user.save
-	  		flash[:success_msg] = 'New password has been changed successfully.'
-			redirect_to fronts_path
-		else
-	  		flash[:error_msg] = 'Old password is wrong.'
-			redirect_to :action => "change_password"
-		end
-	end	
-  end
-=end
   def change_password
 	if !params[:user].blank?
 		if params[:user][:password].blank?
@@ -131,6 +111,40 @@ class FrontsController < ApplicationController
   end
 
 
+  def facebook_login
+	  auth_hash = request.env['omniauth.auth']
+	  render :text => auth_hash.inspect
+	  if session[:user_id]
+		# Means our user is signed in. Add the authorization to the user
+		User.find(session[:user_id]).add_provider(auth_hash)
+		redirect_to fronts_path
+		#render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
+	  else
+		# Log him in or sign him up
+		auth = Authorization.find_or_create(auth_hash)
+	 
+		# Create the session
+		session[:user_id] = auth.user.id
+	 	redirect_to fronts_path
+		#render :text => "Welcome #{auth.user.name}!"
+	  end
+  end	
+
+  def get_coupon
+	unless params[:id].nil?
+  	  @o_coupon = Coupon.find(params[:id])
+
+	  @o_userCoupon = UserCoupon.create :message => 'sample message', :message_id => '111', :message_status => 'DELIVRD'
+
+	  @o_userCoupon.user_id = current_user.id.to_i
+	  @o_userCoupon.coupon_id = params[:id].to_i
+	  @o_userCoupon.save
+
+	  UserMailer.get_coupon_confirmation(current_user, @o_coupon).deliver
+	  #flash[:success_msg] = 'The Discount Coupon is emailed to registered Email ID.'
+	end	
+  end
+
   # DELETE /user_sessions/1
   # DELETE /user_sessions/1.xml
   def destroy
@@ -143,5 +157,10 @@ class FrontsController < ApplicationController
       format.xml { head :ok }
     end
   end
-
+  def privacypolicy
+  end
+  def contactus
+  end
+  def terms
+  end
 end

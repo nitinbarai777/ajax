@@ -1,8 +1,9 @@
-body { margin:0; padding:0; background:#ffffff; font-family:Arial, Helvetica, sans-serif; font-size:13px; }
+body { margin:0; padding:0; background:#f7f7f7; font-family:Arial, Helvetica, sans-serif; font-size:13px; }
+html {overflow: -moz-scrollbars-vertical;}
 /*common style here*/
 .fl { float:left; }
 .fr { float:right; } 
-.cl { clear:both; } 
+.cl { clear:both; height:0; } 
 a, img { border:none; outline:0; } 
 ul, li { margin:0; padding:0; list-style:none; }
 h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
@@ -16,21 +17,22 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .topbox ul li a:hover { color:#fff; text-decoration:underline; }
 .socialbox { width:80px; padding-top:8px; height:34px; float:right; text-align:right; background:url(../images/sap.jpg) left no-repeat; }
 .socialbox img { margin:0 0 0 10px; }
-.main-containt { padding:0 9px; }
+.main-containt { padding:20px 8px 20px 8px; background:#fff; border-left:#ececec solid 1px; border-right:#ececec solid 1px; }
 .main-containt h3{ margin-left:15px; }
-.cuponbox { padding:10px 0 0 0;}
+.cuponbox { padding:10px 0;}
 .cuponbox-left { width:315px; float:left; text-align:left; padding:10px 0 0 15px;} 
 .cuponbox-right { float:left; text-align:right; padding-right:15px;} 
-.citybox { margin-bottom:15px; padding:10px 0; background:url(../images/line.jpg) bottom repeat-x; font-weight:bold; font-size:14px; }
+.citybox { padding:10px; background:#fff url(../images/citybg.jpg) top left repeat-x; font-weight:bold; font-size:15px; border-top:#fff solid 1px; border-left:#ececec solid 1px; border-right:#ececec solid 1px; }
 .citybox ul { margin:0; }
-.citybox ul li { margin:0 12px 0 0; color:#666; display:inline; }
+.citybox ul li { margin:0 12px 0 0; color:#414141; display:inline; }
 .citybox ul li img { margin:0 5px -5px 0; }
-.citybox ul li a {  color:#666; text-decoration:none; }
-.citybox ul li a:hover { color:#666; text-decoration:none; }
-.citybox ul li+li { color:#ca5298 }
+.citybox ul li a {  color:#a31e21; text-decoration:none; }
+.citybox ul li a:hover { color:#000; text-decoration:none; }
+/*.citybox ul li+li { color:#ca5298 }
 .citybox ul li+li a {  color:#ca5298; text-decoration:none; }
 .citybox ul li+li+li { color:#84d4da }
-.citybox ul li+li+li a {  color:#84d4da; text-decoration:none; }
+.citybox ul li+li+li a {  color:#84d4da; text-decoration:none; }*/
+.area_filter { margin:10px 0 0 0; background: none; border:#ccc dashed 1px; padding:6px 10px;  -webkit-border-radius:5px;  -moz-border-radius:5px;  border-radius:5px; font-weight:normal; color:#000; }
 .middlebox { padding: 0;}
 .footer { background:#414141; height:42px; font-size:12px; color:#fff; line-height:42px; }
 .footerleft { width:470px; padding:0 0 0 10px; float:left; }
@@ -52,6 +54,30 @@ background: -ms-linear-gradient(top,  #c65095 0%,#b54a89 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #c65095 0%,#b54a89 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', endColorstr='#b54a89',GradientType=0 ); /* IE6-9 */ }
 .boxdetail-title h4 { margin:0; padding:0; font-size:14px; font-weight:bold; color:#3c182d; text-transform:uppercase; font-family:Arial, Helvetica, sans-serif; }
+.pagestext { padding:0 10px; font-size:13px; line-height:22px; color:#6b6b6b; }
+.pagestext p { margin:0; padding:0 0 20px 0; }
+.pagestext a { color:#6b6b6b; text-decoration:underline; }
+.pagestext a:hover { color:#bb3830; text-decoration:underline; }
+.pagestext h3 { margin:0 0 10px 0; padding:0 0 5px 0; font-size:20px; color:#bb3830; font-weight:bold; border-bottom:#000 dashed 1px;  }
+.contacttext { font-size:14px; font-weight:normal; color:#414141; line-height:25px;}
+.contacttext p { margin:0; padding:0 0 10px 0; font-family:Arial, Helvetica, sans-serif;  font-size:13px; font-weight:normal; color:#414141; line-height:18px;}
+.profilebox { float:left; padding-top:15px;  }
+.profile-leftpart { width:475px; float:left; }
+.profile-leftpart span { font-size:11px; color:#CCCCCC; font-style:italic; display:block; margin-top:-12px; }
+.profile-leftpart form { margin-left:0;}
 
 
-
+#load {
+    background: url("../images/client/transparant.png") repeat scroll center top transparent;
+    float: left;
+    height: 430px;
+    left: 0;
+    margin: 0 auto;
+    min-height: 120px;
+    padding-top: 110px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 1002px;
+    z-index: 99;
+}

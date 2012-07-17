@@ -3,14 +3,61 @@ class UserMailer < ActionMailer::Base
   
   def registration_confirmation(user)
     @user = user
-    #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-    mail(:to => "#{user.username} <#{user.email}>", :subject => "CouponMandi::New registration")
+    
+	body = "Dear, #{user.username} <br />
+
+	Your Registration Has Been Done Successfully <br />
+
+	<a href='http://couponmandi.com/'>Please click here to login</a> <br />
+
+	Thank you, <br />
+
+	Couponmadi Team"
+    mail(:to => "#{user.username} <#{user.email}>", :subject => "CouponMandi::New registration", :body => body)
   end
 
   def forgot_password_confirmation(user,new_pass)
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-	body = "Your new password has been generated as below <br /> Password: #{new_pass}"
+	body = "Dear, #{user.username} <br />
+
+	Your Password Has Been Reset Successfully <br />
+
+	Your New Password  is :- #{new_pass} <br />
+
+	<a href='http://couponmandi.com/'>Please click here to login</a> <br />
+
+	Thank you, <br />
+
+	Couponmadi Team"
+	#body = "Your new password has been generated as below <br /> Password: #{new_pass}"
     mail(:to => "#{user.username} <#{user.email}>", :subject => "CouponMandi::Password Reset", :body => body)
+  end
+
+  def get_coupon_confirmation(user,coupon)
+
+	body = "Dear, #{user.username} <br />
+
+	Your Coupon Details: <br />
+
+	Your coupon code : 	QMQTH6 <br />
+
+	Offer place : 	Yahvi Restaurant <br />
+
+	Coupon valid From : 	16/07/12 <br />
+
+	Coupon valid upto : 	21/07/12 <br />
+
+	Discount : 	#{coupon.price} Percent <br />
+
+	Address: #{coupon.price.html_safe} <br />
+	Terms & Conditions: #{coupon.term_conditions.html_safe} <br />
+
+
+	Thank you, <br />
+
+	Couponmadi Team"
+	
+    mail(:to => "#{user.username} <#{user.email}>", :subject => "Your coupon code info for Coupon Mandi", :body => body.html_safe)
   end
 
 end

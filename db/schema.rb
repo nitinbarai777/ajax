@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120711063811) do
+ActiveRecord::Schema.define(:version => 20120717100431) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20120711063811) do
   end
 
   add_index "areas", ["city_id"], :name => "index_areas_on_city_id"
+
+  create_table "authorizations", :force => true do |t|
+    t.string   "provider"
+    t.string   "uid"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "carriers", :force => true do |t|
     t.string   "name"
@@ -61,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20120711063811) do
     t.integer  "merchant_location_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.date     "valid_from"
+    t.date     "valid_to"
   end
 
   add_index "coupons", ["coupontype_id"], :name => "index_coupons_on_coupontype_id"
@@ -111,11 +121,25 @@ ActiveRecord::Schema.define(:version => 20120711063811) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.decimal  "price",       :precision => 10, :scale => 0
     t.datetime "released_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
+
+  create_table "user_coupons", :force => true do |t|
+    t.string   "message"
+    t.string   "message_id"
+    t.string   "message_status"
+    t.string   "error_text"
+    t.integer  "user_id"
+    t.integer  "coupon_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "user_coupons", ["coupon_id"], :name => "index_user_coupons_on_coupon_id"
+  add_index "user_coupons", ["user_id"], :name => "index_user_coupons_on_user_id"
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -127,7 +151,7 @@ ActiveRecord::Schema.define(:version => 20120711063811) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "mobile_number"
-    t.string   "carrier_id"
+    t.string   "carrier_id",        :limit => 4
     t.integer  "gateway_id"
     t.string   "email"
     t.string   "crypted_password"
@@ -140,9 +164,11 @@ ActiveRecord::Schema.define(:version => 20120711063811) do
     t.string   "contact"
     t.string   "image"
     t.integer  "is_admin"
-    t.boolean  "is_active",         :default => true
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
+    t.boolean  "is_active",                      :default => true
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
+    t.date     "birth_date"
+    t.date     "anniversary_date"
   end
 
   add_index "users", ["carrier_id"], :name => "index_users_on_carrier_id"

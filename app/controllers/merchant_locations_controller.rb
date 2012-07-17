@@ -34,6 +34,7 @@ class MerchantLocationsController < ApplicationController
   # generate a edit form to update the record
   def edit
     @o_single = MerchantLocation.find(params[:id])
+	@o_all_area = Area.where(:city_id => @o_single.city_id)
   end
   
   # update a record and save in database
@@ -61,11 +62,11 @@ class MerchantLocationsController < ApplicationController
   
   # sort column private method
   def sort_column
-    MerchantLocation.column_names.include?(params[:sort]) ? params[:sort] : "contact_person"
+    MerchantLocation.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
   
   # order records private method
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

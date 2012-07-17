@@ -8,7 +8,11 @@
 <div id="div_update_area">
   <p>
     <%= f.label :area_id %>
-    <%= f.select :area_id, options_for_select(Area.all.map { |c| [c.name, c.id] }, @o_single.area_id)  %>
+	<% if @o_all_area.blank? %>
+	    <%= f.select :area_id, options_for_select(["select area"], @o_single.area_id)  %>
+	<% else %>
+	    <%= f.select :area_id, options_for_select(["select area"] + @o_all_area.map { |c| [c.name, c.id] }, @o_single.area_id)  %>
+	<% end %>
   </p>
 </div>
 

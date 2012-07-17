@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  message: MyString
+  message_id: MyString
+  message_status: MyString
+  error_text: MyString
+  user: 
+  coupon: 
+
+two:
+  message: MyString
+  message_id: MyString
+  message_status: MyString
+  error_text: MyString
+  user: 
+  coupon: 

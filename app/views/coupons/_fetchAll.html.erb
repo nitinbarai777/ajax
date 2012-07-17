@@ -14,7 +14,7 @@
   <% for o_row in @o_all %>
     <tr>
       <td><%= o_row.name %></td>
-      <td><%= o_row.price %> %</td>
+      <td><%= o_row.price %>%</td>
       <td><%= o_row.free_coupon %></td>
       <td><%= o_row.min_purchase %></td>
       <td><%= o_row.is_active ? image_tag("Yes.gif") : image_tag("No.gif") %></td>

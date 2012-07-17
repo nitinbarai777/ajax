@@ -1,6 +1,8 @@
 Store::Application.routes.draw do
   
 
+  resources :user_coupons
+
   get "front/index"
 
   resources :fronts
@@ -38,8 +40,16 @@ Store::Application.routes.draw do
   match '/profile_edit/:id' => 'fronts#edit', :as => :profile_edit
   match '/profile_update' => 'fronts#update', :as => :profile_update
   match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
+  match 'get_coupon/:id' => 'fronts#get_coupon', :as => :get_coupon
+
+  match 'coupon_filter_area/:area_id' => 'fronts#index', :as => :coupon_filter_area
+
   match '/forgot_password' => 'fronts#forgot_password', :as => :forgot_password
   match '/change_password' => 'fronts#change_password', :as => :change_password
+  match '/privacypolicy' => 'fronts#privacypolicy', :as => :privacypolicy
+  match '/contactus' => 'fronts#contactus', :as => :contactus
+  match '/terms' => 'fronts#terms', :as => :terms
+
 
 
   
@@ -50,6 +60,10 @@ Store::Application.routes.draw do
 
 
   match '/getArea' => 'merchant_locations#list_area_by_city', :as => :list_area_by_city
+
+
+  match '/auth/:provider/callback', :to => 'fronts#facebook_login'
+  match '/auth/failure', :to => 'sessions#failure'
 
 
   root :to => 'fronts#index'

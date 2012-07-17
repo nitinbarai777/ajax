@@ -1,17 +1,17 @@
     		<div class="topbox">
-		        <div class="socialbox"><a href="#"><img src="images/twitter-icon.png" alt="" /></a>
-		           <a href="#"><img src="images/facebook-icon.png" alt="" /></a>
+		        <div class="socialbox"><a href="http://www.twitter.com/couponmandi" target="_blank">
+<img src="images/twitter-icon.png" alt="" /></a>
+		           <a href="http://www.facebook.com/pages/CouponMandi/166349660062358" target="_blank"><img src="images/facebook-icon.png" alt="" /></a>
 		        </div>
 		        	<ul>
 		            	<li><%= link_to "Home", fronts_path %></li>
-		                <li><a href="#">How it Works?</a></li>
-		                <li class="last"><a href="#">Contact Us</a></li>
+		                <li class="last"><%= link_to "Contact Us", contactus_path %></li>
 						<% if !session[:user_id].nil? %>
 							<li><%= link_to "Profile", profile_edit_path(current_user.id)%></li>
 							<li><%= link_to "Change Password", change_password_path %></li>
 							<li><%= link_to "Logout", :log_out %></li>
 						<% else %>
-					        <li><%= link_to "Register", new_front_path%></li>
+					        <li><%= link_to "Sign Up", new_front_path%></li>
 						<% end %>
 
 		            </ul>

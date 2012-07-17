@@ -7,6 +7,7 @@ gem 'rails', '3.2.6'
 gem 'authlogic'
 gem 'webget_ruby_secure_random'
 gem 'sqlite3'
+gem 'mysql2'
 gem 'nifty-generators'
 #gem 'will_paginate', '3.0.pre2'
 gem "will_paginate", :git => "https://github.com/p7r/will_paginate.git", :branch => "rails3"
@@ -17,6 +18,8 @@ gem "carrierwave"
 gem "mail"
 gem "ckeditor", "3.7.1"
 gem 'omniauth-facebook'
+gem 'debugger'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

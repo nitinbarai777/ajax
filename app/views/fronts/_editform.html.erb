@@ -1,3 +1,9 @@
+<div class="main-containt ">
+<div class="pagestext">
+
+<h3>Edit Profile</h3>
+<div class="profilebox">
+<div class="profile-leftpart">
 <%= form_for(@user, :url => profile_update_path) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -44,7 +50,8 @@
     <%= f.label :state %>
     <%= f.text_field :state %>
   </div>
-
+</div>
+<div class="profile-leftpart">
   <div class="field">
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
@@ -77,9 +84,11 @@
 
   <div class="actions">
     <%= f.submit :Save %>
-  <%= link_to "back", fronts_path %>
 
   </div>
 <% end %>
-
-
+</div>
+</div>
+</div>
+<div class="cl"></div>
+</div>

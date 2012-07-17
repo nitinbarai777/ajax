@@ -12,6 +12,7 @@
   <%# end %>
 -->
   <div class="field">
+    <%= f.hidden_field :is_admin, :value => 0 %>
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name %>
 	<% if @user.errors[:first_name].any? %>

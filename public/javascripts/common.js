@@ -2,6 +2,34 @@
 
 $(document).ready(function() {
 
+	$('.getcupon a').click(function() {
+		$('#load').show();
+	});
+
+
+$(function() {
+  $("#user_birth_date").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+  $("#user_anniversary_date").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+
+  $("#coupon_valid_from").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+
+  $("#coupon_valid_to").datepicker({
+			changeMonth: true,
+			changeYear: true
+		});
+});
+
+
+
    if ($('textarea').length > 0) {       
      var data = $('textarea');
      $.each(data, function(i) {
