@@ -1,6 +1,7 @@
 class FrontsController < ApplicationController
   layout "fronts"
   def index
+
     @user_session = UserSession.new
 	if !params[:id].nil?
 		session[:city_id] = params[:id].to_i
@@ -112,42 +113,40 @@ class FrontsController < ApplicationController
 
 
   def facebook_login
-	  auth_hash = request.env['omniauth.auth']
-	  render :text => auth_hash.inspect
-	  if session[:user_id]
-		# Means our user is signed in. Add the authorization to the user
-		User.find(session[:user_id]).add_provider(auth_hash)
-		redirect_to fronts_path
-		#render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
-	  else
-		# Log him in or sign him up
-		auth = Authorization.find_or_create(auth_hash)
-	 
-		# Create the session
-		session[:user_id] = auth.user.id
-	 	redirect_to fronts_path
-		#render :text => "Welcome #{auth.user.name}!"
-	  end
+      auth_hash = request.env['omniauth.auth']
+
+      @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
+      if @authorization
+        render :text => "Welcome back #{@authorization.user.username}! You have already signed up."
+      else
+		user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
+        user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
+        user.save
+
+        render :text => "Hi #{user.username}! You've signed up."
+      end
+
   end	
 
   def get_coupon
 	unless params[:id].nil?
   	  @o_coupon = Coupon.find(params[:id])
-
-	  @o_userCoupon = UserCoupon.new
-	  @o_userCoupon.message = 'sample message'
-	  @o_userCoupon.message_id = '111'
-	  @o_userCoupon.message_status = 'DELIVRD'
-	  @o_userCoupon.user_id = current_user.id.to_i
-	  @o_userCoupon.coupon_id = params[:id].to_i
-	  @o_userCoupon.save
-
-	  body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user, :coupon => @o_coupon}, :formats => [:html])
-	  body = body.html_safe
-
-	  UserMailer.get_coupon_confirmation(current_user, @o_coupon, body).deliver
-	  #flash[:success_msg] = 'The Discount Coupon is emailed to registered Email ID.'
-	end	
+		@check_usercoupon = UserCoupon.where(:user_id => current_user.id.to_i, :coupon_id => params[:id].to_i).order("created_at desc").first
+		unless @check_usercoupon.blank?
+			@tm = (Time.parse(DateTime.now.to_s) - Time.parse(@check_usercoupon.created_at.to_s))/3600
+			if @tm > 1
+				setUserCoupon(@o_coupon)
+				@response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+			else
+				@response_msg = 'You can get this coupone after 24 hours'
+			end
+		else
+	    	setUserCoupon(@o_coupon)
+  		    @response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+		end
+	else
+		@response_msg = 'Something is broken'
+	end
   end
 
   # DELETE /user_sessions/1
@@ -170,4 +169,61 @@ class FrontsController < ApplicationController
 
   def terms
   end
+
+	def nexmo_sms
+		nexmo = Nexmo::Client.new('07ecc81d', 'c41a5d4e')
+		@text_msg = "SAMPLE MESSAGE"
+		response = nexmo.send_message({
+		  from: 'CouponMandi',
+		  to: "+919824560502",
+		  text: @text_msg
+		})
+		if response.success?
+		  render :text => "Sent message: #{response.message_id}"
+		elsif response.failure?
+		  render :text => "Sent message: #{response.error}"
+		end
+	end
+
+
+
+private
+  #set user coupon and send e-mail and SMS to provided user details	
+  def setUserCoupon(coupon)
+	  @o_userCoupon = UserCoupon.new
+	  @o_userCoupon.message = 'sample message'
+	  @o_userCoupon.message_id = '111'
+	  @o_userCoupon.message_status = 'DELIVRD'
+	  @o_userCoupon.user_id = current_user.id.to_i
+	  @o_userCoupon.coupon_id = coupon.id.to_i
+	  @o_userCoupon.save
+
+	  body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user, :coupon => coupon}, :formats => [:html])
+	  body = body.html_safe
+
+	  UserMailer.get_coupon_confirmation(current_user, coupon, body).deliver
+
+=begin
+		nexmo = Nexmo::Client.new('07ecc81d', 'c41a5d4e')
+		@text_msg = "Name: #{coupon.name}, Valid From #{coupon.valid_from} To #{coupon.valid_to}, Discount: - #{coupon.price}%"
+		response = nexmo.send_message({
+		  from: 'CouponMandi',
+		  to: "+91"+"919601150343",
+		  text: @text_msg
+		})
+		if response.success?
+		  @o_userCoupon.message_id = response.message_id
+		  @o_userCoupon.message_status = "DELIVRD"
+		  @o_userCoupon.message = @text_msg
+		  @o_userCoupon.save
+		elsif response.failure?
+		  @o_userCoupon.message_id = response.message_id
+		  @o_userCoupon.message_status = "FAILED"
+		  @o_userCoupon.message = @text_msg
+		  @o_userCoupon.error_text = response.error
+		  @o_userCoupon.save
+		end
+=end
+  end
+	
 end

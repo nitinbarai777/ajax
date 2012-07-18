@@ -40,7 +40,9 @@ h1, h2, h3, h4, h5, h6 { margin:0; padding:0; }
 .footerleft a:hover { color:#fff; text-decoration:underline; } 
 .footerright { width:490px; padding:0 10px 0 0; float:right; text-align:right; }
 .boxdetail {  height:160px; padding:10px 0;text-align:center; }
-.boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:50px; padding:5px 10px; font-size:13px; color:#fff; line-height:14px; }
+.boxdetail-title { font-family:Arial, Helvetica, sans-serif; height:60px; padding:5px 10px; font-size:13px; color:#fff; line-height:14px; }
+.discount { background:url(../images/disbg.png) top left no-repeat; text-align:center; width:140px;  }
+.discount span {color:#bd3326; font-size:13px; font-weight:bold; text-align:center; line-height:23px;}
 .boxdetail-title.titlebg1 {
 -webkit-border-radius:0 0 4px 4px;  -moz-border-radius:0 0 4px 4px;  border-radius:0 0 4px 4px;
 background: #c65095; /* Old browsers */

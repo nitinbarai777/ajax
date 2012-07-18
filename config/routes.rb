@@ -63,6 +63,8 @@ Store::Application.routes.draw do
 
 
   match '/auth/:provider/callback', :to => 'fronts#facebook_login'
+  match '/nexmo_sms', :to => 'fronts#nexmo_sms'
+
   match '/auth/failure', :to => 'sessions#failure'
 
 

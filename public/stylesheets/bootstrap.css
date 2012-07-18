@@ -4172,20 +4172,23 @@ box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 .nav-list li.readMore.plus a{ background: url(../images/coupon-btn.png) top right no-repeat; padding:6px 109px 6px 0;cursor:pointer; width:106px; height:26px;}
 .nav-list li.readMore.minus a{  padding:6px 24px 6px 0;}
 
-.expandBox{ background: #C45094; /* Old browsers */
+.expandBox{ background: #ffc7e8; border:#d957af solid 1px; box-shadow:none; font-size:13px; /* Old browsers */
 }
 .expandtext { padding:15px; color:#fff; float:left; overflow-y: scroll; height:209px; width:951px;   }
 .expand-one { width:180px; float:left; margin-right:20px; }
 .expand-one strong { font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold; color:#000; }
 .fimg { margin:0; background:#fff; -webkit-border-radius:5px;  -moz-border-radius:5px;  border-radius:5px; padding:10px; text-align:center; min-height:190px; }
 .fimg strong { margin:0; padding:0 0 20px 0; font-size:17px; color:#ba3932; font-weight:bold; float:left; }
-.expand-two { margin:0 0 15px 0; width:730px; float:left; } 
-.cupontext { margin:0 0 10px 0; line-height:16px; color:#fff;  text-align:justify;}
-.cupontext p { margin:0; padding:0; color:#fff;  } 
-.line { margin-bottom:10px; padding:0 0 5px 0; border-bottom:1px dashed #FFFFFF; color:#fff;}
-.expand-two strong { font-size:12px; padding-bottom:5px; color:#000; text-transform:uppercase;}
+.expand-two { margin:0 0 15px 0; width:700px; float:left; color:#414141; } 
+.cupontext { margin:0 0 10px 0; line-height:16px;  text-align:justify;}
+.cupontext p { margin:0; padding:0;  } 
+.cupontext span { font-weight:bold; color:#c45094; }
+.line { margin-bottom:10px; padding:5px; border:1px solid #FFFFFF; color:#414141; background:#f6f6f6; font-weight:bold; -webkit-border-radius:5px;  -moz-border-radius:5px;  border-radius:5px;  }
+.line span { color:#c45094; }
+
 .text { width:175px; float:left;}
-.getcupon { padding:0;  float:left; position:absolute; top:10px; right:10px; }
+.getcupon { padding:0;  float:left; position:absolute; top:10px; right:67px; }
+.getbtn  { float:left; background:url(/images/get-btn.png) top left no-repeat; margin-top:7px; width:106px; height:26px; }
 
 .expandBox .nav-list{ margin:0px; padding:10px 0 0px 0; display:inline-block; }
 .expandBox .nav-list li{ padding:0px 0px 0px 0px; background-color:none; display:inline; margin:0px 8px 0px 0px; width:auto; line-height:28px;font-weight:normal; font-size:16px; font-family:"LatoRegular"; color:#505050;}

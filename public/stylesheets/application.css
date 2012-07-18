@@ -1,6 +1,6 @@
 body {
-  background-color: #4B7399;
-  font-family: Verdana, Helvetica, Arial;
+  margin:0; padding:0;
+  font-family: Verdana, Helvetica, Arial;   background:url(../images/main-loginbg.jpg); 
   font-size: 14px;
 }
 
@@ -21,10 +21,9 @@ a {
 #container {
   width: 75%;
   margin: 0 auto;
-  background-color: #F0F0F0;
+
   padding: 20px 40px;
-  border: solid 1px black;
-  margin-top: 20px;
+  border: solid 1px #c4c2c0;
 }
 
 #flash_notice, #flash_error, #flash_alert {

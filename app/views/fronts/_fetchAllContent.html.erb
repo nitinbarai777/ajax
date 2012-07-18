@@ -65,8 +65,9 @@
                                 </div>
                                  <div class="boxdetail-title titlebg1">
                                 <h4><%= row.name %></h4>
-                                <%= row.price %>% Discount<br />
-Monday To Saturday
+                                <div class="discount">
+                                <span><%= row.price %>% Discount</span><br />
+Monday To Saturday</div>
                                 <ul class="nav-list">
 									<li class="expandCatBox readMore plus"><a title="View Coupon" id="<%= @v %>_<%= row.id.to_i %>">
 										<%#= t("general.view_coupon") %>
@@ -95,24 +96,23 @@ Monday To Saturday
 		                                    </div>
 		                                    <div class="expand-two">
 				                                <div class="line">
-						                            <div class="text">
-							                            <strong>Coupon Available For :</strong><br />
-							                            Monday To Saturday
-						                            </div>
+							                            Coupon Available For :
+							                            <span>Monday To Saturday</span>
 					                                <div class="cl"></div>
 				                                </div>
 												<div class="cupontext">                 
-		                                         	<strong>Name:</strong> 
+		                                         	<span>Name:</span> 
 													<%= row.name %>
 												</div>
 												<% unless row.valid_from.nil? %>
 												<div class="cupontext">                 
-		                                         	<strong>Valid:</strong> 
+		                                         	<span>Valid:</span> 
 													From <%= row.valid_from %> To <%= row.valid_to %>
 												</div>
-												<% end %>
+												<% end %>		
+
 				                                <div class="cupontext">
-					                                <strong>Address:</strong> 
+					                                <span>Address:</span> 
 													<%= row.address.html_safe %>
 												 </div>
 				                                
@@ -122,7 +122,7 @@ Monday To Saturday
 				                                </div>-->
 		                                        
 												<div class="cupontext">
-				                    	            <strong>Term & Conditions:</strong>
+				                    	            <span>Term & Conditions:</span>
 													<%= row.term_conditions.html_safe %> 
 				                                </div>
 
@@ -132,9 +132,9 @@ Monday To Saturday
 													</li>
 												</ul>
 			                                    <div class="getcupon">
-				                                    <div class="whitebtn">
+				                                    <div class="getbtn">
 												<% if session[:user_id].nil? %>
-													<%= link_to t("general.get_coupon"), "#", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
+													<%= link_to t("general.get_coupon"), "#_", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
 												<% else %>
 													<div class="getcupon_load">
 													<%= link_to t("general.get_coupon"), get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
