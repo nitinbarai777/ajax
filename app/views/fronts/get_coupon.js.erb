@@ -1,2 +1,7 @@
 $("#msg_coupon").html("<%= @response_msg %>");
 $('#load').hide();
+
+alert('<%= @response_msg %>');
+
+$('#header_msg').animate({
+	scrollTop: $('#header_msg').position().top}, 'slow');

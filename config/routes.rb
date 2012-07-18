@@ -1,6 +1,8 @@
 Store::Application.routes.draw do
   
 
+  resources :user_providers
+
   resources :user_coupons
 
   get "front/index"

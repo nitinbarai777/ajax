@@ -9,6 +9,7 @@
 			<div id="notice"><%= flash[:flash_notice] %></div>
 		<% end %>
 	  </div>
+	  <div id="header_msg"></div>
 	  <div id="msg_coupon"></div>	
 
 
@@ -141,10 +142,10 @@ Monday To Saturday</div>
 			                                    <div class="getcupon">
 				                                    <div class="getbtn">
 												<% if session[:user_id].nil? %>
-													<%= link_to t("general.get_coupon"), "#_", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
+													<%= link_to '', "#_", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
 												<% else %>
 													<div class="getcupon_load">
-													<%= link_to t("general.get_coupon"), get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
+													<%= link_to '', get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
 													</div>
 												<% end %>	
 													</div>

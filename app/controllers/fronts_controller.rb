@@ -26,6 +26,8 @@ class FrontsController < ApplicationController
 		redirect_to fronts_path
 	elsif @user_session.save
 		session[:user_id] = current_user.id
+    	session[:user_provider_id] = nil
+		session[:user_provider] = nil
 		flash[:success_msg] = 'Login successfully.'
 		redirect_to fronts_path
     else
@@ -115,33 +117,47 @@ class FrontsController < ApplicationController
   def facebook_login
       auth_hash = request.env['omniauth.auth']
 
-      @authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
-      if @authorization
-        render :text => "Welcome back #{@authorization.user.username}! You have already signed up."
-      else
-		user = User.new :username => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
-        user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
-        user.save
+  if session[:user_id]
+    # Means our user is signed in. Add the authorization to the user
+    #User.find(session[:user_id]).add_provider(auth_hash)
+	redirect_to fronts_path
+    #render :text => "You can now login using #{auth_hash["provider"].capitalize} too!"
+  else
+    # Log him in or sign him up
+    user_provider_id = Authorization.find_or_create(auth_hash)
+    
+    # Create the session
+    session[:user_id] = user_provider_id
+    session[:user_provider_id] = user_provider_id
+	session[:user_provider] = 'facebook'
+    session[:fb_token] = auth_hash["credentials"]["token"]
 
-        render :text => "Hi #{user.username}! You've signed up."
-      end
+ 	redirect_to fronts_path
+    #render :text => "Welcome #{auth.inspect}!"
+  end
 
   end	
 
   def get_coupon
 	unless params[:id].nil?
-  	  @o_coupon = Coupon.find(params[:id])
-		@check_usercoupon = UserCoupon.where(:user_id => current_user.id.to_i, :coupon_id => params[:id].to_i).order("created_at desc").first
+  	  o_coupon = Coupon.find(params[:id])
+
+		if session[:user_provider_id].nil?
+			@check_usercoupon = UserCoupon.where(:user_id => current_user.id.to_i, :coupon_id => params[:id].to_i).order("created_at desc").first
+		else
+			@check_usercoupon = UserCoupon.where(:user_id => session[:user_provider_id], :coupon_id => params[:id].to_i, :provider => 'facebook').order("created_at desc").first
+		end
+		
 		unless @check_usercoupon.blank?
 			@tm = (Time.parse(DateTime.now.to_s) - Time.parse(@check_usercoupon.created_at.to_s))/3600
-			if @tm > 1
-				setUserCoupon(@o_coupon)
+			if @tm > 24
+				setUserCoupon(o_coupon)
 				@response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
 			else
 				@response_msg = 'You can get this coupone after 24 hours'
 			end
 		else
-	    	setUserCoupon(@o_coupon)
+	    	setUserCoupon(o_coupon)
   		    @response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
 		end
 	else
@@ -149,18 +165,19 @@ class FrontsController < ApplicationController
 	end
   end
 
-  # DELETE /user_sessions/1
-  # DELETE /user_sessions/1.xml
   def destroy
     @user_session = UserSession.find
-    @user_session.destroy
+	if @user_session
+	    @user_session.destroy
+	end
 	session[:user_id] = nil
+	session[:user_provider_id] = nil
+    session[:user_provider] = nil
 
-    respond_to do |format|
-      format.html { redirect_to(:fronts, :notice => 'Goodbye!') }
-      format.xml { head :ok }
-    end
+	base_url = 'http://156.ajax.ntn/'
+	redirect_to   "https://www.facebook.com/logout.php?access_token=" + session[:fb_token] + "&next=#{base_url}"
   end
+
   def privacypolicy
   end
 
@@ -187,21 +204,33 @@ class FrontsController < ApplicationController
 
 
 
-private
+  private
   #set user coupon and send e-mail and SMS to provided user details	
-  def setUserCoupon(coupon)
+  def setUserCoupon(o_coupon)
 	  @o_userCoupon = UserCoupon.new
 	  @o_userCoupon.message = 'sample message'
 	  @o_userCoupon.message_id = '111'
 	  @o_userCoupon.message_status = 'DELIVRD'
-	  @o_userCoupon.user_id = current_user.id.to_i
-	  @o_userCoupon.coupon_id = coupon.id.to_i
+	  @o_userCoupon.coupon_id = o_coupon.id
+	  if session[:user_provider] == 'facebook'
+		@o_userCoupon.provider = 'facebook'
+		current_user_provider = UserProvider.find(session[:user_provider_id])
+		@o_userCoupon.user_id = current_user_provider.id
+	    body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user_provider.username, :coupon => o_coupon}, :formats =>
+ [:html])			
+	  body = body.html_safe
+	  UserMailer.get_coupon_confirmation(current_user_provider, o_coupon, body).deliver
+	  else	
+		@o_userCoupon.user_id = current_user.id
+	    body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user.username, :coupon => o_coupon}, :formats => [:html])			
+	  body = body.html_safe
+	  UserMailer.get_coupon_confirmation(current_user, o_coupon, body).deliver
+	  end
 	  @o_userCoupon.save
 
-	  body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user, :coupon => coupon}, :formats => [:html])
-	  body = body.html_safe
 
-	  UserMailer.get_coupon_confirmation(current_user, coupon, body).deliver
+
+
 
 =begin
 		nexmo = Nexmo::Client.new('07ecc81d', 'c41a5d4e')

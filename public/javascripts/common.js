@@ -7,24 +7,29 @@ $(document).ready(function() {
 	});
 
 
+
 $(function() {
   $("#user_birth_date").datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
   $("#user_anniversary_date").datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 
   $("#coupon_valid_from").datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 
   $("#coupon_valid_to").datepicker({
 			changeMonth: true,
-			changeYear: true
+			changeYear: true,
+			dateFormat: "yy-mm-dd"
 		});
 });
 

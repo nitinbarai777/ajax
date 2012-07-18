@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Username:</b>
+  <%= @user_provider.username %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user_provider.email %>
+</p>
+
+<p>
+  <b>Mobile number:</b>
+  <%= @user_provider.mobile_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_provider_path(@user_provider) %> |
+<%= link_to 'Back', user_providers_path %>

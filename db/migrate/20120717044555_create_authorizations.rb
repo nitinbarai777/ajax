@@ -3,7 +3,7 @@ class CreateAuthorizations < ActiveRecord::Migration
     create_table :authorizations do |t|
       t.string :provider
       t.string :uid
-      t.integer :user_id
+      t.integer :user_provider_id
 
       t.timestamps
     end

@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   attr_accessible :crypted_password, :email, :password_salt, :persistence_token, :username, :password, :password_confirmation, :address, :city, :state, :zipcode, :contact, :is_admin, :image, :first_name, :last_name, :carrier_id, :mobile_number, :gateway_id, :is_active, :birth_date, :anniversary_date
   belongs_to :carrier
   belongs_to :gateway
-  has_many :authorizations
   has_many :user_coupons
   
   validates :first_name, :last_name, :mobile_number, :presence => true

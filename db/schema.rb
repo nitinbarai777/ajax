@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120717100431) do
+ActiveRecord::Schema.define(:version => 20120718123750) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -26,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20120717100431) do
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
     t.string   "uid"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "user_provider_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "carriers", :force => true do |t|
@@ -136,10 +136,19 @@ ActiveRecord::Schema.define(:version => 20120717100431) do
     t.integer  "coupon_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.string   "provider"
   end
 
   add_index "user_coupons", ["coupon_id"], :name => "index_user_coupons_on_coupon_id"
   add_index "user_coupons", ["user_id"], :name => "index_user_coupons_on_user_id"
+
+  create_table "user_providers", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "mobile_number"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
 
   create_table "user_sessions", :force => true do |t|
     t.datetime "created_at", :null => false

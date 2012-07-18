@@ -1,19 +1,19 @@
-<header>
+<header class="headline">
     <%= link_to(image_tag("cupon-logo.jpg", :alt => "CouponMandi", :class => "round"), "/admin") %>
-    <nav class="round">
+    <nav class="wlcm-menu">
       <ul>
 		 <% if !session[:user_id].nil? %>
-		   <li>Welcome, <%= current_user.username %></li>
-			<li><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
-			<li><%= link_to "Logout", :logout%></li>
+		   <li><%= image_tag "wc-admin.png" %>Welcome, <%= current_user.username %></li>
+			<li><%= image_tag "edt-pfl.png" %><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
+			<li><%= image_tag "logout.png" %><%= link_to "Logout", :logout%></li>
 		<% else %>
 			<li>Welcome, Admin</li>
 			<li><%= link_to "Home", root_path %></li>
 		<% end %>
       </ul>
     </nav>
-<br />
-    <nav class="round">
+
+    <nav class="menu">
       <ul>
 		 <% if !session[:user_id].nil? %>
 		    <li><%= link_to "Users", users_path %></li>
@@ -24,7 +24,7 @@
 		    <li><%= link_to "City", cities_path %></li>
 		    <li><%= link_to "Area", areas_path %></li>
 		    <li><%= link_to "Merchant", merchants_path %></li>
-		    <li><%#= link_to "Merchant Location", merchant_locations_path %></li>
+<!--<li><%#= link_to "Merchant Location", merchant_locations_path %></li>-->
 		<% end %>
       </ul>
     </nav>

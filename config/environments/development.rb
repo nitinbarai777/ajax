@@ -19,4 +19,6 @@ Store::Application.configure do
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
+
+  BASE_URL = "http://156.ajax.ntn/"
 end

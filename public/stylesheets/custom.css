@@ -15,11 +15,12 @@ header img {
     padding: 1em;
 }
 section {
-    background: none repeat scroll 0 0 #FFFFFF;
-    font-size: 120%;
+    background: #FFFFFF;
+    font-size:13px;
     margin-top: 1em;
-    padding: 20px;
+    padding: 20px; -webkit-box-shadow:  0px 0px 3px 3px rgba(206, 206, 205, 0.5); box-shadow:  0px 0px 3px 3px rgba(206, 206, 205, 0.5);
 }
+section h3 { border-bottom: 1px dashed #000000; color: #BB3830; font-size: 20px; font-weight: bold; margin: 0 0 10px; padding: 0 0 5px;}
 section h1 {
     font-size: 200%;
 }
@@ -28,8 +29,8 @@ a {
     text-decoration: none;
 }
 a:hover {
-    color: #006699;
-    text-decoration: underline;
+    color: #a31e23;
+    text-decoration:none;
 }
 a:visited {
     color: #006699;
@@ -38,8 +39,6 @@ nav {
     float: right;
 }
 nav {
-    background-color: white;
-    padding: 0 0.7em;
     white-space: nowrap;
 }
 nav ul {
@@ -47,23 +46,21 @@ nav ul {
     padding: 0;
 }
 nav ul li {
-    display: inline-block;
+    display: inline-block; background:url(/images/nav-bg.jpg) bottom left repeat-x; height:28px; font-size:13px; font-weight:bold; color:#414141;
     list-style-type: none;
-    padding: 0.2em 0;
+    padding:0; line-height:28px; border:#88b6c3 solid 1px; -webkit-border-radius:5px 5px 0 0;  -moz-border-radius:5px 5px 0 0;  border-radius:5px 5px 0 0; border-bottom:none;
 }
 nav ul li a {
-    font-weight: bold;
-    padding: 0 5px;
+    padding: 0 7px; color:#414141;
 }
 nav ul li a:visited {
-    color: #0099CC;
+    color: #414141;
 }
 nav ul li a:hover {
-    text-decoration: underline;
+    text-decoration: none; color:#a31e23;
 }
 a.signup_button {
-    background: none repeat scroll 0 0 #006400;
-    color: #FFFFFF;
+    background: none repeat scroll 0 0 #006400; color: #FFFFFF;
     display: block;
     font-size: 150%;
     font-weight: bold;
@@ -74,14 +71,14 @@ a.signup_button {
     width: 190px;
 }
 .round {
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px; 
 }
 footer {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 18px;
     text-align: center;
-    width: 710px;
+	background:url(/images/admin-hed-line.jpg) top left repeat-x; 
 }
 footer nav {
     float: none;
@@ -161,8 +158,5 @@ div.user_info span.microposts {
 form.new_micropost {
     margin-bottom: 2em;
 }
-form.new_micropost textarea {
-    height: 4em;
-    margin-bottom: 0;
+form.new_micropost textarea { height: 4em; margin-bottom: 0;
 }
-
