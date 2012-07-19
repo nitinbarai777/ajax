@@ -1,78 +1,83 @@
+<div class="admintextbox">
+<div class="admintextbox-leftpart ">
 <%= form_for @o_single do |f| %>
   <%= f.error_messages %>
   <p>
 	<%= f.hidden_field :merchant_location_id, :value => session[:merchant_location_id] %>
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= f.label :discount %><br />
+    <%= f.label :discount %>
     <%= f.text_field :price %>%
   </p>
 
   <p>
-    <%= f.label :free_coupon %><br />
+    <%= f.label :free_coupon %>
     <%= f.text_field :free_coupon %>
   </p>
 
   <p>
-    <%= f.label :min_purchase %><br />
+    <%= f.label :min_purchase %>
     <%= f.text_field :min_purchase %>
   </p>
 
   <p>
-    <%= f.label :up_comming %><br />
+    <%= f.label :up_comming %>
     <%= f.check_box :up_comming %>
   </p>
 
   <p>
-    <%= f.label :valid_from %><br />
+    <%= f.label :valid_from %>
     <%= f.text_field :valid_from %>
   </p>
 
 
   <p>
-    <%= f.label :valid_to %><br />
+    <%= f.label :valid_to %>
     <%= f.text_field :valid_to %>
   </p>
 
 
   <p>
-    <%= f.label :coupontype_id %><br />
+    <%= f.label :coupontype_id %>
     <%= f.select :coupontype_id, options_for_select(Coupontype.all.map { |c| [c.name, c.id] }, @o_single.coupontype_id)  %>
   </p>
 
 <!--  <p>
-    <%= f.label :address %><br />
+    <%= f.label :address %>
     <%= f.text_area :address %>
   </p> -->
 
   <p>
-    <%= f.label :image %><br />
+    <%= f.label :image %>
     <%= f.file_field :image %>
   </p>
 
   <p>
-    <%= f.label :highlights %><br />
+    <%= f.label :highlights %>
     <%= f.text_area :highlights %>
   </p>
 
   <p>
-    <%= f.label :term_conditions %><br />
+    <%= f.label :term_conditions %>
     <%= f.text_area :term_conditions %>
   </p>
 
   <p>
-    <%= f.label :offer %><br />
+    <%= f.label :offer %>
     <%= f.text_area :offer %>
   </p>
 
   <p>
-    <%= f.label :is_active %><br />
+    <%= f.label :is_active %>
     <%= f.check_box :is_active %>
   </p>
   <p><%= f.submit :value => t("general.save") %>
-<%= link_to t("general.back"), coupons_path %>
+<div class="btn"><%= link_to t("general.back"), coupons_path %></div>
 </p>
 <% end %>
+</div>
+<div class="cl"></div>
+</div>

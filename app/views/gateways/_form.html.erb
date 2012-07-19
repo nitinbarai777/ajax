@@ -1,14 +1,21 @@
+<div class="admintextbox">
+<div class="admintextbox-leftpart ">
 <%= form_for @o_single do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :is_active %><br />
+    <%= f.label :is_active %>
     <%= f.check_box :is_active %>
   </p>
   <p><%= f.submit :value => t("general.save") %>
-	<%= link_to t("general.back"), gateways_path %>
+	<div class="btn"><%= link_to t("general.back"), gateways_path %></div>
   </p>
 <% end %>
+
+</div>
+<div class="cl"></div>
+</div>
+

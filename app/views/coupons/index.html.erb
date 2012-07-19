@@ -8,6 +8,11 @@
   <div id="div_update"><%= render 'fetchAll' %></div>
 <% end %>
 
-<p><%= link_to t("general.new"), new_coupon_path %>
-<%= link_to t("general.back"), merchant_locations_path %>
-</p>
+<div class="btn">
+	<%= link_to t("general.Add"), new_coupon_path %>
+</div>
+<div class="btn">
+	<%= link_to t("general.back"), merchant_locations_path %>
+</div>
+
+<div class="cl"></div>
