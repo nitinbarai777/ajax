@@ -1,3 +1,5 @@
+<div class="profilebox">
+<div class="profile-leftpart">
 <%= form_for(@user) do |f| %>
 <!--
   <%# if @user.errors.any? %>
@@ -34,6 +36,8 @@
 		<%= raw @user.errors[:username].first %>
 	<% end %>
   </div>
+  </div>
+<div class="profile-leftpart">
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
@@ -74,4 +78,5 @@
   </div>
 <% end %>
 
-
+</div>
+</div>

@@ -4020,14 +4020,14 @@ box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 .hero-unit h3 {
   font-family:"Arial";
   margin:15px 25px 15px 25px;
-  padding:0px 0px 15px 0px;
-  font-size: 32px;
-  line-height:32px;
-  color: #414141;
+  padding:0px 0px 10px 0px;
+  font-size:26px;
+  line-height:20px;
+  color: #e46713;
   letter-spacing: 0px;
   font-weight:bold;
   text-align:left;
-  border-bottom:1px dashed #cdcdcd;
+  border-bottom:1px dashed #cdcdcd; margin-bottom:10px;
 }
 .hero-unit h4 {
   font-family:"Arial";
@@ -4174,7 +4174,7 @@ box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 
 .expandBox{ background: #ffc7e8; border:#d957af solid 1px; box-shadow:none; font-size:13px; /* Old browsers */
 }
-.expandtext { padding:15px; color:#fff; float:left; overflow-y: scroll; height:209px; width:951px;   }
+.expandtext { padding:15px; color:#fff; float:left; overflow-y: scroll; height:220px; width:950px;   }
 .expand-one { width:180px; float:left; margin-right:20px; }
 .expand-one strong { font-family:Arial, Helvetica, sans-serif; font-size:16px; font-weight:bold; color:#000; }
 .fimg { margin:0; background:#fff; -webkit-border-radius:5px;  -moz-border-radius:5px;  border-radius:5px; padding:10px; text-align:center; min-height:190px; }
@@ -4212,7 +4212,7 @@ box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 .discUutinen{ color:#2db400; font-size:10px; font-weight:normal; font-family:"LatoRegular"; clear:both; text-transform:uppercase; background:url(/images/servicecatalog/uutinen.png) left 5px no-repeat; padding:3px 0px 2px 18px; margin:3px 0px; display:block;}
 .contentNews{ color:#505050; font-size:14px; font-weight:normal; font-family:"LatoRegular"; clear:both; padding:15px 0px 2px 10px; margin:0px; display:block;}
 
-.newsEventBox{ padding:0px; display:block; min-height:349px; background:#fff url(/images/loginbg.jpg) bottom center no-repeat; }
+.newsEventBox{ padding:0px; display:block; min-height:290px; background:#fff url(/images/loginbg.jpg) bottom center no-repeat; }
 .newsEventBox .btn-group { float:right; margin-top:4px; *margin-left:0px;}
 .newsEventBox .btn-group .btn{ font-family:"LatoRegular"; color:#2db400; font-size:24px; padding:0px 5px 10px 5px; padding:0px 6px 12px 6px\9; width:11px; height:11px;}
 .newsEventBox .btn-group .btn img{ margin-top:6px; vertical-align:top;}
@@ -4232,7 +4232,7 @@ box-shadow:  0px 0px 3px 1px rgba(0, 0, 0, 0.2);
 .newsEventBox .contentNews a.colorG{ color:#2db400; font-family:"LatoBold"; font-weight:normal; text-decoration:none; cursor:pointer;}
 .newsEventBox .contentNews a.colorG:hover{color:#505050; text-decoration:none;}
 
-.mHeight{ height:219px;}
+.mHeight{ height:160px;}
 
 .searchBox{ min-height:120px;
   -webkit-border-radius: 4px; -moz-border-radius: 4px; border-radius: 4px; margin-bottom:20px;
@@ -5131,7 +5131,7 @@ fieldset.inner-fieldset legend a {margin-left: 15px; cursor: pointer; }
 .fblogin { margin-left:10px; float:left; cursor:pointer; }
 .expadnbox { padding:5px; background:#fff; border:#bfbfbf solid 1px; }
 .errormsg { margin:0; padding:0 15px; font-size:12px; color:#ff0000; }
-.successmsg { margin:0; padding:0 0 10px 15px; font-size:15px; color:#ff0000; font-weight:bold; text-align:center; }
+.successmsg { margin:0; padding:0 0 0 15px; font-size:15px; color:#ff0000; font-weight:bold; text-align:center; }
 .changepswrd { background:#fff; border:#cbcbcb dashed 1px; padding:25px 25px 10px 20px; margin:25px auto 35px auto; width:310px;   -webkit-border-radius:5px;  -moz-border-radius:5px;  border-radius:5px; }
 .changepswrd h3 { margin:0 0 10px 0; padding:0 0 5px 0; font-size:20px; color:#bb3830; font-weight:bold; border-bottom:#000 dashed 1px;  }
-#msg_coupon { margin:0; padding:0 0 10px 15px; font-size:15px; color:#ff0000; font-weight:bold; text-align:center; }
+#msg_coupon { margin:0; padding:0 0 0 15px; font-size:15px; color:#ff0000; font-weight:bold; text-align:center; }

@@ -1,33 +1,9 @@
-<h1>Listing user_coupons</h1>
+<h3><%= t("general.get_coupons") %></h3>
 
-<table>
-  <tr>
-    <th>Message</th>
-    <th>Message</th>
-    <th>Message status</th>
-    <th>Error text</th>
-    <th>User</th>
-    <th>Coupon</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @user_coupons.each do |user_coupon| %>
-  <tr>
-    <td><%= user_coupon.message %></td>
-    <td><%= user_coupon.message_id %></td>
-    <td><%= user_coupon.message_status %></td>
-    <td><%= user_coupon.error_text %></td>
-    <td><%= user_coupon.user %></td>
-    <td><%= user_coupon.coupon %></td>
-    <td><%= link_to 'Show', user_coupon %></td>
-    <td><%= link_to 'Edit', edit_user_coupon_path(user_coupon) %></td>
-    <td><%= link_to 'Destroy', user_coupon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<%= form_tag user_coupons_path, :method => 'get', :id => "div_update_search" do %>
+  <p>
+    <%= t("general.search") %>: <%= text_field_tag :search, params[:search] %>
+    <%#= submit_tag t("general.search"), :name => nil %>
+  </p>
+  <div id="div_update"><%= render 'fetchAll' %></div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New User coupon', new_user_coupon_path %>

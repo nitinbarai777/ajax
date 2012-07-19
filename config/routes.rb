@@ -41,6 +41,10 @@ Store::Application.routes.draw do
   match '/fronts_signup' => 'fronts#create', :as => :fronts_signup
   match '/profile_edit/:id' => 'fronts#edit', :as => :profile_edit
   match '/profile_update' => 'fronts#update', :as => :profile_update
+
+  match '/mobile_edit/:id' => 'fronts#mobile_edit', :as => :mobile_edit
+  match '/mobile_edit_update' => 'fronts#mobile_edit_update', :as => :mobile_edit_update
+
   match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
   match 'get_coupon/:id' => 'fronts#get_coupon', :as => :get_coupon
 

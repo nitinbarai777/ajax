@@ -1,17 +1,19 @@
 <%= form_for(@user_session) do |f| %>
-  <% if @user_session.errors.any? %>
+  
+<div class="loginfom">
+
+<h3>Login</h3>
+<% if @user_session.errors.any? %>
     <div id="error_explanation">
-      <ul>
+
       <% @user_session.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <%= msg %>
       <% end %>
-      </ul>
+
     </div>
   <% end %>
-<div class="loginfom">
-<h3>Login</h3>
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %>
     <%= f.text_field :username %>
   </div>
   <div class="field">

@@ -16,14 +16,14 @@ a img {
 #container {
   width: 75%;
   margin: 0 auto;
-background:#f3f3f3;
+background:#f3f3f3; position:relative;
   padding: 20px; border:#fff solid 1px; -webkit-border-radius:0 0 10px 10px;  -moz-border-radius:0 0 10px 10px;  border-radius:0 0 10px 10px;
 
 }
 
 #flash_notice, #flash_error, #flash_alert {
   padding:3px 8px; 
-  margin:0 0 0 200px; position:absolute; font-size:13px; color:#af161c; font-weight:normal; -webkit-border-radius:15px;  -moz-border-radius:15px;  border-radius:15px;
+  margin:0; position:absolute; font-size:13px; color:#af161c; font-weight:normal; -webkit-border-radius:15px;  -moz-border-radius:15px;  border-radius:15px; top:77px; right:20px;
 }
 
 #flash_notice {
@@ -102,7 +102,7 @@ table.pretty {
 .wlcm-menu ul li img { padding:0; background:none; margin:0 5px -2px 0; }
 .headline { background:url(/images/admin-hed-line.jpg) bottom left repeat-x; margin-bottom:10px; padding-bottom:10px; }
 
-.menu { margin-top:71px; clear:both;}
+.menu { margin-top:-21px; clear:both;}
 .loginfom { margin:0 auto; padding:20px; width:375px; background:#fff; border:#cececd solid 1px; -webkit-border-radius:10px;  -moz-border-radius:10px;  border-radius:10px; -webkit-box-shadow:  0px 0px 3px 3px rgba(206, 206, 205, 0.5); box-shadow:  0px 0px 3px 3px rgba(206, 206, 205, 0.5);  }
 .loginfom h3 { border-bottom: 1px dashed #000000; color: #BB3830; font-size: 20px; font-weight: bold; margin: 0 0 10px; padding: 0 0 5px;}
 .loginfom input[type="text"]{ margin:3px 0 10px 0; padding:0 10px; line-height:32px; color:#2d2d2d; font-size:13px; border:#bdbcbd solid 1px; background:url(../images/filedbg.jpg) top left repeat-x;; width:350px; height:32px; border-radius:4px;-moz-border-radius:4px; -webkit-border-radius:4px; }

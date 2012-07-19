@@ -87,20 +87,11 @@ nav {
     float: right;
 }
 .field_with_errors {
-    background-color: red;
     display: table;
-    margin-top: 10px;
-    padding: 2px;
-}
-.field_with_errors label {
-    color: #FFFFFF;
+
 }
 #error_explanation {
-    background-color: #F0F0F0;
-    border: 2px solid red;
-    margin-bottom: 20px;
-    padding: 7px 7px 12px;
-    width: 400px;
+ font-size:13px; font-style:italic; color:#ff0000; text-align:left;
 }
 #error_explanation h2 {
     background-color: #CC0000;
@@ -158,5 +149,51 @@ div.user_info span.microposts {
 form.new_micropost {
     margin-bottom: 2em;
 }
-form.new_micropost textarea { height: 4em; margin-bottom: 0;
+form.new_micropost textarea { height: 4em; margin-bottom: 0; }
+
+.admintextbox {width:950px;  }
+.admintextbox-leftpart { width:475px; float:left; }
+.admintextbox span { font-size:11px; font-style:italic; display:block; margin-top:-12px; }
+.admintextbox-leftpart form { margin-left:0;}
+
+.admintextbox  input, textarea {
+    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
 }
+.admintextbox  input, textarea, select, .uneditable-input {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    color: #555555;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    height: 18px;
+    line-height: 18px;
+    margin-bottom: 9px;
+    padding: 4px;
+    width: 270px; 
+}
+.admintextbox select, input[type="file"] {
+    height: 28px;
+    line-height: 28px; }
+	
+.admintextbox select {
+  width: 280px;
+  background-color: #ffffff;
+}
+.admintextbox input[type="button"],
+.admintextbox input[type="reset"],
+.admintextbox input[type="submit"] {
+  width: auto;
+  height: auto; background:#bb372d; font-size:15px; text-transform:uppercase; color:#fff; text-align:center; padding:7px 15px; border-radius:5px; -webkit-border-radius:5px;  moz-border-radius:5px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; border:none; float:left; cursor:pointer;
+}
+
+.checkbox { width:450px; float:left; }
+.checkbox input[type="checkbox"] { width:20px; float:left; }
+.btn { width: auto;
+  height: auto; background:#bb372d; font-size:15px; text-transform:uppercase; color:#fff; text-align:center; padding:7px 15px; border-radius:5px; -webkit-border-radius:5px;  moz-border-radius:5px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; border:none; float:left; margin-left:10px;
+}
+.btn a { color:#fff; text-decoration:none; }
+.btn a:hover { color:#fff; text-decoration:none; }
+
+.cl { clear:both;}

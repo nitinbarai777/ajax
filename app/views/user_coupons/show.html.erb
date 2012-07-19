@@ -1,35 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% title t("general.show_detail") %>
 
 <p>
-  <b>Message:</b>
-  <%= @user_coupon.message %>
+  <strong>Message:</strong>
+  <%= @o_single.message %>
 </p>
 
 <p>
-  <b>Message:</b>
-  <%= @user_coupon.message_id %>
+  <strong>Message ID:</strong>
+  <%= @o_single.message_id %>
 </p>
 
 <p>
-  <b>Message status:</b>
-  <%= @user_coupon.message_status %>
+  <strong>Error Message:</strong>
+  <%= @o_single.error_text %>
 </p>
 
 <p>
-  <b>Error text:</b>
-  <%= @user_coupon.error_text %>
+  <%= link_to t("general.destroy"), @o_single, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %> |
+  <%= link_to t("general.view_all"), user_coupons_path %>
 </p>
-
-<p>
-  <b>User:</b>
-  <%= @user_coupon.user %>
-</p>
-
-<p>
-  <b>Coupon:</b>
-  <%= @user_coupon.coupon %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_coupon_path(@user_coupon) %> |
-<%= link_to 'Back', user_coupons_path %>

@@ -141,24 +141,36 @@ class FrontsController < ApplicationController
   def get_coupon
 	unless params[:id].nil?
   	  o_coupon = Coupon.find(params[:id])
-
+		@var_mobile_exists = 0
 		if session[:user_provider_id].nil?
 			@check_usercoupon = UserCoupon.where(:user_id => current_user.id.to_i, :coupon_id => params[:id].to_i).order("created_at desc").first
 		else
 			@check_usercoupon = UserCoupon.where(:user_id => session[:user_provider_id], :coupon_id => params[:id].to_i, :provider => 'facebook').order("created_at desc").first
+			@mobile_number = UserProvider.find(session[:user_provider_id]).mobile_number
+			if @mobile_number == ''
+				@var_mobile_exists = 1
+			end
 		end
 		
 		unless @check_usercoupon.blank?
 			@tm = (Time.parse(DateTime.now.to_s) - Time.parse(@check_usercoupon.created_at.to_s))/3600
 			if @tm > 24
-				setUserCoupon(o_coupon)
-				@response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+				if @var_mobile_exists == 1
+					@response_msg = 'Please provide your mobile number in profile page to get coupon.'
+				else
+					setUserCoupon(o_coupon)
+					@response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+				end
 			else
 				@response_msg = 'You can get this coupone after 24 hours'
 			end
 		else
-	    	setUserCoupon(o_coupon)
-  		    @response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+			if @var_mobile_exists == 1
+				@response_msg = 'Please provide your mobile number in profile page to get coupon.'
+			else
+				setUserCoupon(o_coupon)
+				@response_msg = 'The Discount Coupon has been sent to your registered mobile number and email ID'
+			end
 		end
 	else
 		@response_msg = 'Something is broken'
@@ -174,8 +186,24 @@ class FrontsController < ApplicationController
 	session[:user_provider_id] = nil
     session[:user_provider] = nil
 
-	base_url = 'http://156.ajax.ntn/'
-	redirect_to   "https://www.facebook.com/logout.php?access_token=" + session[:fb_token] + "&next=#{base_url}"
+	if session[:user_provider].nil?	
+		redirect_to fronts_path
+	else
+		base_url = 'http://156.ajax.ntn/'
+		redirect_to "https://www.facebook.com/logout.php?access_token=" + session[:fb_token] + "&next=#{base_url}"
+	end
+  end
+
+  def mobile_edit
+	@o_userProvider = UserProvider.find(params[:id])
+  end
+
+  def mobile_edit_update
+	@o_userProvider = UserProvider.find(params[:user_provider][:id])
+    if @o_userProvider.update_attributes(params[:user_provider])
+      flash[:success_msg] = "Profile updated successfully."
+   	  redirect_to fronts_path
+    end
   end
 
   def privacypolicy
@@ -223,8 +251,8 @@ class FrontsController < ApplicationController
 	  else	
 		@o_userCoupon.user_id = current_user.id
 	    body = render_to_string(:partial => "fronts/coupon_mail", :locals => { :user => current_user.username, :coupon => o_coupon}, :formats => [:html])			
-	  body = body.html_safe
-	  UserMailer.get_coupon_confirmation(current_user, o_coupon, body).deliver
+	  	body = body.html_safe
+	 	UserMailer.get_coupon_confirmation(current_user, o_coupon, body).deliver
 	  end
 	  @o_userCoupon.save
 

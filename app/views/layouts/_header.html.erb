@@ -17,6 +17,7 @@
       <ul>
 		 <% if !session[:user_id].nil? %>
 		    <li><%= link_to "Users", users_path %></li>
+			<li><%= link_to "Facebook Users", user_providers_path %></li>
 		    <li><%= link_to "Gateway", gateways_path %></li>
 		    <li><%= link_to "Carrier", carriers_path %></li>
 		    <li><%= link_to "Category", categories_path %></li>
@@ -24,6 +25,8 @@
 		    <li><%= link_to "City", cities_path %></li>
 		    <li><%= link_to "Area", areas_path %></li>
 		    <li><%= link_to "Merchant", merchants_path %></li>
+		    <li><%= link_to "Get Coupons", user_coupons_path %></li>
+
 <!--<li><%#= link_to "Merchant Location", merchant_locations_path %></li>-->
 		<% end %>
       </ul>

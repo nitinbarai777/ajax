@@ -1,0 +1,25 @@
+<div class="main-containt ">
+<div class="pagestext">
+
+<h3>Edit Profile</h3>
+<div class="profilebox">
+<div class="profile-leftpart">
+
+<%= form_for(@o_userProvider, :url => mobile_edit_update_path) do |f| %>
+
+  <div class="field">
+    <%= f.label :mobile_number %>
+    <%= f.text_field :mobile_number %>
+	<%= f.hidden_field :id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :Save %>
+
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+<div class="cl"></div>
+</div>

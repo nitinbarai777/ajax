@@ -1,3 +1,5 @@
+<div class="admintextbox">
+<div class="admintextbox-leftpart ">
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
@@ -43,11 +45,15 @@
     <%= f.label :state %><br />
     <%= f.text_field :state %>
   </div>
-
   <div class="field">
     <%= f.label :zipcode %><br />
     <%= f.text_field :zipcode %>
   </div>
+  </div>
+<div class="admintextbox-leftpart ">
+
+  
+
 
   <div class="field">
     <%= f.label :contact %><br />
@@ -75,20 +81,27 @@
   </div>
 <% if current_user.is_admin == 1 %>
   <div class="field">
-    <%= f.label :is_admin %><br />
+  <div class="checkbox">
+    <%= f.label :is_admin %>
     <%= f.check_box :is_admin %>
+    </div>
   </div>
 <% end %>
   <div class="field">
-    <%= f.label :is_active %><br />
+   <div class="checkbox">
+    <%= f.label :is_active %>
     <%= f.check_box :is_active %>
+    </div>
   </div>
 
   <div class="actions">
     <%= f.submit :Save %>
-  <%= link_to "Show", @user %> |
-  <%= link_to "View All", users_path %>
+ <div class="btn"> <%= link_to "Show", @user %> </div>
+  <div class="btn"><%= link_to "View All", users_path %></div>
   </div>
 <% end %>
 
+</div>
+<div class="cl"></div>
+</div>
 

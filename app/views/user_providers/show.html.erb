@@ -1,20 +1,19 @@
-<p id="notice"><%= notice %></p>
+<% title "user" %>
 
 <p>
-  <b>Username:</b>
-  <%= @user_provider.username %>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+<p>
+  <strong>Mobile:</strong>
+  <%= @user.mobile_number %>
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @user_provider.email %>
+  <%= link_to "Destroy", @user, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", user_providers_path %>
 </p>
-
-<p>
-  <b>Mobile number:</b>
-  <%= @user_provider.mobile_number %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_provider_path(@user_provider) %> |
-<%= link_to 'Back', user_providers_path %>

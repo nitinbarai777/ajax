@@ -1,0 +1,25 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<table class="pretty" width="100%">
+  <tr>
+    <th><%= sortable "message_status" %></th>
+    <th><%= sortable "user_id" %></th>
+    <th><%= sortable "coupon_id" %></th>
+    <th><%= sortable "provider" %></th>
+    <th><%= sortable "created_at" %></th>
+	<th><%= t("general.actions") %></th>
+  </tr>
+  <% for o_row in @o_all %>
+    <tr>
+      <td><%= o_row.message_status %></td>
+      <td><%= o_row.provider == 'facebook' ? o_row.user_provider.username : o_row.user.username %></td>
+      <td><%= o_row.coupon.name %></td>
+      <td><%= o_row.provider %></td>
+      <td><%= o_row.created_at %></td>
+      <td> <%= link_to image_tag("delete.png", :width => "16px", :height => "16px", :title => t("general.destroy")), o_row, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %>
+		<%= link_to image_tag("showButton.gif", :title => t("general.show")), user_coupon_path(o_row), :method => "get" %>
+		</td>
+    </tr>
+  <% end %>
+</table>
+<%= will_paginate @o_all %>
