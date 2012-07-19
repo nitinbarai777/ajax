@@ -20,73 +20,71 @@
     <%= f.hidden_field :is_admin, :value => 0 %>
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
-	<% if @user.errors[:first_name].any? %>
-		<%= raw @user.errors[:first_name].first %>
+	<span><% if @user.errors[:first_name].any? %>
+		<%= raw @user.errors[:first_name].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
-	<% if @user.errors[:last_name].any? %>
-		<%= raw @user.errors[:last_name].first %>
+	<span><% if @user.errors[:last_name].any? %>
+		<%= raw @user.errors[:last_name].first %></span>
 	<% end %>
   </div>
   <div class="field">
     <%= f.label :username %>
     <%= f.text_field :username %>
-	<% if @user.errors[:username].any? %>
-		<%= raw @user.errors[:username].first %>
+	<span><% if @user.errors[:username].any? %>
+		<%= raw @user.errors[:username].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
-	<% if @user.errors[:email].any? %>
-		<%= raw @user.errors[:email].first %>
+	<span><% if @user.errors[:email].any? %>
+		<%= raw @user.errors[:email].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <%= f.password_field :password %>
-	<% if @user.errors[:password].any? %>
-		<%= raw @user.errors[:password].first %>
+	<span><% if @user.errors[:password].any? %>
+		<%= raw @user.errors[:password].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-	<% if @user.errors[:password_confirmation].any? %>
-		<%= raw @user.errors[:password_confirmation].first %>
+	<span><% if @user.errors[:password_confirmation].any? %>
+		<%= raw @user.errors[:password_confirmation].first %></span>
 	<% end %>
     </div>
         </div>
   <div class="profile-leftpart">
   <div class="field">
     <%= f.label :mobile_number %>
-    <%= f.text_field :mobile_number %><br />
-	<span>Please enter your mobile number without 0 or +91</span>
-
-	<% if @user.errors[:mobile_number].any? %>
-		<%= raw @user.errors[:mobile_number].first %>
+    <%= f.text_field :mobile_number %>
+	<span><% if @user.errors[:mobile_number].any? %>
+		<%= raw @user.errors[:mobile_number].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
     <%= f.label :birth_date %>
     <%= f.text_field :birth_date %>
-	<% if @user.errors[:birth_date].any? %>
-		<%= raw @user.errors[:birth_date].first %>
+	<span><% if @user.errors[:birth_date].any? %>
+		<%= raw @user.errors[:birth_date].first %></span>
 	<% end %>
   </div>
   <div class="field">
     <%= f.label :anniversary_date %>
     <%= f.text_field :anniversary_date %>
-	<% if @user.errors[:anniversary_date].any? %>
-		<%= raw @user.errors[:anniversary_date].first %>
+	<span><% if @user.errors[:anniversary_date].any? %>
+		<%= raw @user.errors[:anniversary_date].first %></span>
 	<% end %>
   </div>
 

@@ -651,9 +651,9 @@ textarea {
 }
 label {
   display: block;
-  margin-bottom: 5px;
   color: #333333;
 }
+
 input,
 textarea,
 select,

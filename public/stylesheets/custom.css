@@ -94,21 +94,18 @@ nav {
  font-size:13px; font-style:italic; color:#ff0000; text-align:left;
 }
 #error_explanation h2 {
-    background-color: #CC0000;
-    color: #FFFFFF;
+    color: #414141;
     font-size: 12px;
-    margin: -7px;
-    padding: 5px 5px 5px 15px;
+    margin:0;
+    padding:0;
     text-align: left;
 }
 #error_explanation p {
     color: #333333;
-    margin-bottom: 0;
     padding: 5px;
 }
 #error_explanation ul li {
-    font-size: 12px;
-    list-style: square outside none;
+    list-style: none; margin:0; padding:0; line-height:20px;
 }
 h1.micropost {
     margin-bottom: 0.3em;
@@ -153,7 +150,8 @@ form.new_micropost textarea { height: 4em; margin-bottom: 0; }
 
 .admintextbox {width:950px;  }
 .admintextbox-leftpart { width:475px; float:left; }
-.admintextbox span { font-size:11px; font-style:italic; display:block; margin-top:-12px; }
+.admintextbox span { font-size:12px; font-style:italic; display:block; margin-top:-7px; color:#ff0000; }
+.admintextbox em { font-size:12px; font-style:normal; display:block; margin-top:-24px; color:#ccc; padding-bottom:8px; }
 .admintextbox-leftpart form { margin-left:0;}
 
 .admintextbox  input, textarea {
@@ -187,9 +185,14 @@ form.new_micropost textarea { height: 4em; margin-bottom: 0; }
   width: auto;
   height: auto; background:#bb372d; font-size:15px; text-transform:uppercase; color:#fff; text-align:center; padding:7px 15px; border-radius:5px; -webkit-border-radius:5px;  moz-border-radius:5px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; border:none; float:left; cursor:pointer;
 }
+.admintextbox label {
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+}
 
 .checkbox { width:450px; float:left; }
-.checkbox input[type="checkbox"] { width:20px; float:left; }
+.checkbox input[type="checkbox"] { width:14px; float:left; margin:0 5px 10px 0; }
 .btn { width: auto;
   height: auto; background:#bb372d; font-size:15px; text-transform:uppercase; color:#fff; text-align:center; padding:7px 15px; border-radius:5px; -webkit-border-radius:5px;  moz-border-radius:5px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; border:none; float:left; margin-left:10px;
 }
@@ -197,3 +200,4 @@ form.new_micropost textarea { height: 4em; margin-bottom: 0; }
 .btn a:hover { color:#fff; text-decoration:none; }
 
 .cl { clear:both;}
+.admintextbox ul, li { margin:0; padding:0; }

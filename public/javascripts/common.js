@@ -167,3 +167,5 @@ function callAjaxRequest(snCityId, ssUrl, ssUpdateDivId)
 		}
 	})
 }
+
+

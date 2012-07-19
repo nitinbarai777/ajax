@@ -1,31 +1,32 @@
     		<div class="topbox">
 		        <div class="socialbox"><a href="http://www.twitter.com/couponmandi" target="_blank">
-<img src="/images/twitter-icon.png" alt="" /></a>
+				   <img src="/images/twitter-icon.png" alt="" /></a>
 		           <a href="http://www.facebook.com/pages/CouponMandi/166349660062358" target="_blank"><img src="/images/facebook-icon.png" alt="" /></a>
+<br /><br />
+					<fb:like href="http://couponmandi.com/" layout="button_count" show_faces="false" width="450" font=""></fb:like>
 		        </div>
 		        	<ul>
-		            	<li><%= link_to "Home", fronts_path %></li>
-		                <li class="last"><%= link_to "Contact Us", contactus_path %></li>
+		            	<li><%= link_to t("general.home"), fronts_path %></li>
+		                <li class="last"><%= link_to t("general.contact_us"), contactus_path %></li>
 						<% if !session[:user_id].nil? %>
 							<% if session[:user_provider_id].nil? %>
-								<li><%= link_to "Profile", profile_edit_path(current_user.id)%></li>
-								<li><%= link_to "Change Password", change_password_path %></li>
-								<li><%= link_to "Logout", :log_out %></li>
+								<li><%= link_to t("general.profile"), profile_edit_path(current_user.id)%></li>
+								<li><%= link_to t("general.change_password"), change_password_path %></li>
+								<li><%= link_to t("general.logout"), :log_out %></li>
 							<% else %>
-								<li><%= link_to "Profile", mobile_edit_path(session[:user_provider_id])%></li>
-								<li><%= link_to "Logout", :log_out %></li>
+								<li><%= link_to t("general.profile"), mobile_edit_path(session[:user_provider_id])%></li>
+								<li><%= link_to t("general.logout"), :log_out %></li>
 							<% end %>
 							
 						<% else %>
-					        <li><%= link_to "Sign Up", new_front_path%></li>
+					        <li><%= link_to t("general.sign_up"), new_front_path%></li>
 						<% end %>
 
 		            </ul>
 		        <div class="cl"></div>
             </div>
                 <div class="cuponbox">
-				    <div class="cuponbox-left"><%= link_to image_tag("cupon-logo.jpg"), fronts_path %></div>
-				    <!--<div class="cuponbox-right"><%= image_tag "cupon-img.jpg" %></div>-->
+				    <div class="cuponbox-left"><%= link_to image_tag("cupon-logo2.png"), fronts_path %></div>
 				    <div class="cl"></div>
 	            </div>
 				

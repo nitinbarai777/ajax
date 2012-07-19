@@ -63,7 +63,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', end
 .contacttext p { margin:0; padding:0 0 10px 0; font-family:Arial, Helvetica, sans-serif;  font-size:13px; font-weight:normal; color:#414141; line-height:18px;}
 .profilebox { float:left; padding-top:15px;  }
 .profile-leftpart { width:475px; float:left; }
-.profile-leftpart span { font-size:11px; font-style:italic; display:block; margin-top:-12px; }
+.profile-leftpart span { font-size:12px; font-style:italic; display:block; margin-top:-12px; color:#ff0000; }
 .profile-leftpart form { margin-left:0;}
 #load { background: url("/images/transparant.png") repeat scroll center top transparent;
     float: left;
@@ -78,8 +78,28 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c65095', end
     width: 1002px;
     z-index: 99;
 }
+div.field, div.actions {
+    margin-bottom: 10px;
+}
 .registerbtn { margin:0 auto; width:225px; height:50px; position:absolute; top:120px; top:225px; left:225px; }
 registerbtn a { color:#000; text-decoration:none; }
 
 .cupon_img { text-align:center; }
 .cupon_img img { margin-left:-7px; border:#cccccc solid 1px;}
+#error_explanation {
+ font-size:13px; font-style:italic; color:#ff0000; text-align:left;
+}
+#error_explanation h2 {
+    color: #414141;
+    font-size: 12px;
+    margin:0;
+    padding:0;
+    text-align: left;
+}
+#error_explanation p {
+    color: #333333;
+    padding: 5px;
+}
+#error_explanation ul li {
+    list-style: none; margin:0; padding:0; line-height:20px;
+}

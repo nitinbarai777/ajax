@@ -1,39 +1,39 @@
 <div class="main-containt ">
 <div class="pagestext">
-
 <h3><%= t("general.edit_profile") %></h3>
 <div class="profilebox">
 <div class="profile-leftpart">
 <%= form_for(@user, :url => profile_update_path) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :username %>
     <%= f.text_field :username %>
 	<%= f.hidden_field :id %>
+	<span><% if @user.errors[:username].any? %>
+		<%= raw @user.errors[:username].first %></span>
+	<% end %>
   </div>
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
+	<span><% if @user.errors[:email].any? %>
+		<%= raw @user.errors[:email].first %></span>
+	<% end %>
   </div>
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
+	<span><% if @user.errors[:first_name].any? %>
+		<%= raw @user.errors[:first_name].first %></span>
+	<% end %>
   </div>
 
   <div class="field">
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>
+	<span><% if @user.errors[:last_name].any? %>
+		<%= raw @user.errors[:last_name].first %></span>
+	<% end %>
   </div>
 
   <div class="field">
@@ -44,6 +44,7 @@
   <div class="field">
     <%= f.label :city %>
     <%= f.text_field :city %>
+    
   </div>
 
   <div class="field">
@@ -70,6 +71,9 @@
   <div class="field">
     <%= f.label :mobile_number %>
     <%= f.text_field :mobile_number %>
+	<% if @user.errors[:mobile_number].any? %>
+		<%= raw @user.errors[:mobile_number].first %>
+	<% end %>
   </div>
 
   <div class="field">

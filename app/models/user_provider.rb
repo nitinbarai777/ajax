@@ -1,7 +1,7 @@
 class UserProvider < ActiveRecord::Base
   attr_accessible :email, :mobile_number, :username
-  has_many :authorizations
-  has_many :user_coupons
+  has_many :authorizations, :dependent => :destroy
+  has_many :user_coupons, :dependent => :destroy
 
   def self.search(search)
     if search

@@ -2,7 +2,7 @@ class Coupon < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   belongs_to :coupontype
   belongs_to :merchant_location
-  has_many :user_coupons
+  has_many :user_coupons, :dependent => :destroy
   attr_accessible :address, :description, :free_coupon, :highlights, :image, :is_active, :min_purchase, :name, :offer, :price, :term_conditions, :up_comming, :coupontype_id, :merchant_location_id, :valid_from, :valid_to
   def self.search(search, id)
     if search

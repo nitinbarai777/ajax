@@ -4,11 +4,11 @@
       <ul>
 		 <% if !session[:user_id].nil? %>
 		   <li><%= image_tag "wc-admin.png" %>Welcome, <%= current_user.username %></li>
-			<li><%= image_tag "edt-pfl.png" %><%= link_to "Edit Profile", edit_user_path(current_user.id)%></li>
-			<li><%= image_tag "logout.png" %><%= link_to "Logout", :logout%></li>
+			<li><%= image_tag "edt-pfl.png" %><%= link_to t("general.edit_profile"), edit_user_path(current_user.id)%></li>
+			<li><%= image_tag "logout.png" %><%= link_to t("general.logout"), :logout%></li>
 		<% else %>
 			<li>Welcome, Admin</li>
-			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to t("general.home"), root_path %></li>
 		<% end %>
       </ul>
     </nav>
@@ -16,18 +16,16 @@
     <nav class="menu">
       <ul>
 		 <% if !session[:user_id].nil? %>
-		    <li><%= link_to "Users", users_path %></li>
-			<li><%= link_to "Facebook Users", user_providers_path %></li>
-		    <li><%= link_to "Gateway", gateways_path %></li>
-		    <li><%= link_to "Carrier", carriers_path %></li>
-		    <li><%= link_to "Category", categories_path %></li>
-		    <li><%= link_to "CouponType", coupontypes_path %></li>
-		    <li><%= link_to "City", cities_path %></li>
-		    <li><%= link_to "Area", areas_path %></li>
-		    <li><%= link_to "Merchant", merchants_path %></li>
-		    <li><%= link_to "Get Coupons", user_coupons_path %></li>
-
-<!--<li><%#= link_to "Merchant Location", merchant_locations_path %></li>-->
+		    <li><%= link_to t("general.users"), users_path %></li>
+			<li><%= link_to t("general.facebook_users"), user_providers_path %></li>
+		    <li><%= link_to t("general.gateways"), gateways_path %></li>
+		    <li><%= link_to t("general.carriers"), carriers_path %></li>
+		    <li><%= link_to t("general.categories"), categories_path %></li>
+		    <li><%= link_to t("general.coupon_types"), coupontypes_path %></li>
+		    <li><%= link_to t("general.cities"), cities_path %></li>
+		    <li><%= link_to t("general.areas"), areas_path %></li>
+		    <li><%= link_to t("general.merchants"), merchants_path %></li>
+		    <li><%= link_to t("general.get_coupons"), user_coupons_path %></li>
 		<% end %>
       </ul>
     </nav>

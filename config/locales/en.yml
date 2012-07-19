@@ -46,3 +46,28 @@ en:
     edit_profile: Edit Profile
     view_coupon: View Coupon
     get_coupon: GET COUPON
+    username_required: Username Required
+    password_requied: Password Requied
+    login_successfully: Login Successfully
+    credentials_not_valid: Credentials you entered are not valid.Please check the spelling for both username and password
+    successfully_registered: Successfully Registered
+    profile_updated_successfully: Profile Updated Successfully
+    email_required: Email Required
+    password_has_been_sent_to_your_email_address: Password has been sent to your email address
+    no_user_exists_for_provided_email_address: No user exists for provided email address
+    password_required: Password Required
+    password_does_not_match: Password does not match
+    password_successfully_updated: Password successfully updated
+    password_does_not_updated: Password does not updated
+    provide_mobile_number_to_ getcoupon: Please provide your mobile number in profile page to get coupon
+    discount_Coupon_sent_email_mobile: The Discount Coupon has been sent to your registered mobile number and email ID
+    get_coupone_after_24_hours: You can get this coupone after 24 hours
+    something_is_broken: Something is broken
+    logout: Logout
+    home: Home
+    facebook_users: Facebook Users
+    get_coupons: Get Coupons
+    contact_us: Contact Us
+    sign_up: Sign Up
+    profile: Profile
+    change_password: Change Password

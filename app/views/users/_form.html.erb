@@ -1,5 +1,5 @@
-<div class="profilebox">
-<div class="profile-leftpart">
+<div class="admintextbox">
+<div class="admintextbox-leftpart ">
 <%= form_for(@user) do |f| %>
 <!--
   <%# if @user.errors.any? %>
@@ -15,68 +15,70 @@
 -->
   <div class="field">
     <%= f.hidden_field :is_admin, :value => 0 %>
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
-	<% if @user.errors[:first_name].any? %>
-		<%= raw @user.errors[:first_name].first %>
+	<span><% if @user.errors[:first_name].any? %>
+		<%= raw @user.errors[:first_name].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
-	<% if @user.errors[:last_name].any? %>
-		<%= raw @user.errors[:last_name].first %>
+	<span><% if @user.errors[:last_name].any? %>
+		<%= raw @user.errors[:last_name].first %></span>
 	<% end %>
   </div>
   <div class="field">
-    <%= f.label :username %><br />
+    <%= f.label :username %>
     <%= f.text_field :username %>
-	<% if @user.errors[:username].any? %>
-		<%= raw @user.errors[:username].first %>
-	<% end %>
-  </div>
-  </div>
-<div class="profile-leftpart">
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-	<% if @user.errors[:email].any? %>
-		<%= raw @user.errors[:email].first %>
+	<span><% if @user.errors[:username].any? %>
+		<%= raw @user.errors[:username].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-	<% if @user.errors[:password].any? %>
-		<%= raw @user.errors[:password].first %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+	<span><% if @user.errors[:email].any? %>
+		<%= raw @user.errors[:email].first %></span>
 	<% end %>
   </div>
+
   <div class="field">
-      <%= f.label :password_confirmation %><br />
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+	<span><% if @user.errors[:password].any? %>
+		<%= raw @user.errors[:password].first %></span>
+	<% end %>
+  </div>
+    </div>
+<div class="admintextbox-leftpart ">
+  <div class="field">
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
-	<% if @user.errors[:password_confirmation].any? %>
-		<%= raw @user.errors[:password_confirmation].first %>
+	<span><% if @user.errors[:password_confirmation].any? %>
+		<%= raw @user.errors[:password_confirmation].first %></span>
 	<% end %>
     </div>
   <div class="field">
-    <%= f.label :mobile_number %><br />
-    <%= f.text_field :mobile_number %> &nbsp;Please enter your mobile number without 0 or +91
-	<% if @user.errors[:mobile_number].any? %>
-		<%= raw @user.errors[:mobile_number].first %>
+    <%= f.label :mobile_number %>
+    <%= f.text_field :mobile_number %>
+	<span><% if @user.errors[:mobile_number].any? %>
+		<%= raw @user.errors[:mobile_number].first %></span>
 	<% end %>
   </div>
 
   <div class="field">
-    <%= f.label :carrier_id %><br />
+    <%= f.label :carrier_id %>
     <%= f.select :carrier_id, options_for_select(Carrier.all.map { |c| [c.name, c.id] }, @user.carrier_id)  %>
   </div>
   <div class="actions">
     <%= f.submit :Save %>
-	<%= link_to t("general.back"), users_path %>
+	<div class="btn"><%= link_to t("general.back"), users_path %></div>
   </div>
 <% end %>
 
 </div>
+<div class="cl"></div>
 </div>

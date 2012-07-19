@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
 	  UserMailer.registration_confirmation(@user).deliver
-      flash[:notice] = "Successfully created User."
+      flash[:notice] = t("general.successfully_created")
       #redirect_to @user
 	  redirect_to :controller => "user_sessions", :action => "new"
     else
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Successfully updated User."
+      flash[:notice] = t("general.successfully_updated")
 	  if current_user.is_admin == 1	
       	redirect_to users_path
 	  else
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    flash[:notice] = "Successfully destroyed User."
+    flash[:notice] = t("general.successfully_destroyed")
     redirect_to users_url
   end
   
