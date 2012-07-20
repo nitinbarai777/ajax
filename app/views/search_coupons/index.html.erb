@@ -1,15 +1,15 @@
 <div class="main-containt ">
 <div class="pagestext">
-<h3><%= t("general.search_coupon") %>	</h3>
+<h3><%= t("general.search_coupon") %></h3>
 <div class="contacttext">
 		<%= form_tag search_coupons_path, :method => 'get', :id => "div_update_search_coupon" do %>
         	
-                <p><label><%= t("general.merchant") %>: <%= select_tag :merchant_id, options_for_select([["select merchant", ""]] + Merchant.all.map { |c| [c.name, c.id] }), :width => "30%"  %></label></p>
+                <p><label><%= t("general.merchant") %>: <%= select_tag :merchant_id, options_for_select([["Select Merchant", ""]] + Merchant.all.map { |c| [c.name, c.id] }), :width => "30%"  %></label></p>
 				
-                <p><label><%= t("general.city") %>: <%= select_tag :city_id, options_for_select([["select city", ""]] + City.all.map { |c| [c.name, c.id] })  %></label></p>
+                <p><label><%= t("general.city") %>: <%= select_tag :city_id, options_for_select([["Select City", ""]] + City.all.map { |c| [c.name, c.id] })  %></label></p>
 				<div id="div_update_area">
                 <p>	
-				  		<label><%= t("general.area") %>: <%= select_tag :area_id, options_for_select([["select area", ""]])  %></label>
+				  		<label><%= t("general.area") %>: <%= select_tag :area_id, options_for_select([["Select Area", ""]])  %></label>
 				</p>
 				</div>
 				<p>
@@ -22,12 +22,6 @@
 	</div>
 </div>
 </div>
-
-
-
-
-
-
 
 
 <script type="text/javascript">

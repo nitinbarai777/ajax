@@ -210,11 +210,11 @@ class FrontsController < ApplicationController
   def terms
   end
 
-  def nexmo_sms
+  def nexmo_sms111
   	nexmo = Nexmo::Client.new('07ecc81d', 'c41a5d4e')
-  	@text_msg = "SAMPLE MESSAGE"
+  	@text_msg = "Loneliness is not when you have no one with you,Loneliness is when you have everyone but not the one whom you want to be with YOU..!!."
   	response = nexmo.send_message({
-  		from: 'CouponMandi',
+  		from: 'Jadi',
 		to: "+919824560502",
 		text: @text_msg
 	})

@@ -7,7 +7,7 @@ class MerchantLocationsController < ApplicationController
 	unless params[:id].nil?
 		session[:merchant_id] = params[:id].to_i
 	end
-    @o_all = MerchantLocation.search(params[:search], session[:merchant_id]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @o_all = MerchantLocation.search(params[:search], session[:merchant_id]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   
   #fetch single record and display

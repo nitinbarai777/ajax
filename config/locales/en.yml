@@ -37,9 +37,11 @@ en:
     gateways: Gateways
     coupon_types: Coupon Types
     cities: Cities
+    city: City
     categories: Categories
     carriers: Carriers
     areas: Areas
+    area: Area
     edit_user: Edit User
     close: Close
     more: More
@@ -71,3 +73,6 @@ en:
     sign_up: Sign Up
     profile: Profile
     change_password: Change Password
+    search_coupon: Search Coupon
+    search: Search
+    created_at: Date

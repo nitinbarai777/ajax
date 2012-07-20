@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   # fetch all records
   def index
-    @o_all = Category.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @o_all = Category.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   
   #fetch single record and display
@@ -56,11 +56,11 @@ class CategoriesController < ApplicationController
   
   # sort column private method
   def sort_column
-    Category.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Category.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
   
   # order records private method
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

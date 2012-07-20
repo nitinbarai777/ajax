@@ -4,7 +4,7 @@ class CarriersController < ApplicationController
 
   # fetch all records
   def index
-    @o_all = Carrier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @o_all = Carrier.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   
   #fetch single record and display
@@ -56,11 +56,11 @@ class CarriersController < ApplicationController
   
   # sort column private method
   def sort_column
-    Carrier.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Carrier.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
   
   # order records private method
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

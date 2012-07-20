@@ -10,8 +10,9 @@
 		<% end %>
 	  </div>
 	  <div id="header_msg"></div>
-	<div id="msg_coupon"></div>
-	
+	  <div id="msg_coupon"></div>	
+
+
 
 <div class="citybox">
         <div class="city_filter">
@@ -34,8 +35,9 @@
 		<% end %>
 </div>
 
-
 <div class="main-containt">
+
+
     	<div class="row-fluid">
         	<div class="span12">
 
@@ -45,7 +47,7 @@
 				<% @tmp_cnt = 0 %>
 				<% @tmp_odd = 1 %>
 
-		
+				
 				<% @o_all.each do |row| %>
 					<% if @tmp_cnt % 3 == 0 %>
 						<div class="row-fluid posRel">
@@ -79,8 +81,14 @@ Monday To Saturday</div>
 							</div>
 						</div>
 					</div>
-
-					<div style="display:none;z-index:1;position:absolute;margin-left:0;left:0px;" class="span4" id="<%= @v %>_detailed_<%= row.id.to_i %>">
+					
+				<% if @v == 'first'%>
+					<div style="display:none;z-index:1;position:absolute;margin-left:0;left:0px;" class="span4" id="first_detailed_<%= row.id.to_i %>">
+				<% elsif @v == 'second' %>
+					<div style="z-index: 1; position: absolute; width: 20%; margin-left: 335px; display: none;left:0px;" class="span4" id="second_detailed_<%= row.id.to_i %>">
+				<% else %>
+					<div style="display:none;z-index:1;position:absolute; right:0px;" class="span4" id="third_detailed_<%= row.id.to_i %>">
+				<% end %>
 						<div class="row-fluid">
 							<div class="span12">
 									<div class="categoryBox hero-unit expandBox">
@@ -114,7 +122,7 @@ Monday To Saturday</div>
 
 				                                <div class="cupontext">
 					                                <span>Address:</span> 
-													<%= row.address.html_safe %>
+													<%= row.merchant_location.address.html_safe %>
 												 </div>
 				                                
 												<!--<div class="cupontext">
@@ -135,10 +143,10 @@ Monday To Saturday</div>
 			                                    <div class="getcupon">
 				                                    <div class="getbtn">
 												<% if session[:user_id].nil? %>
-													<%= link_to "", "#_", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
+													<%= link_to '', "#_", :onclick => 'alert("Please Sign In to get coupon..!!!")' %>
 												<% else %>
 													<div class="getcupon_load">
-													<%= link_to "", get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
+													<%= link_to '', get_coupon_path(row.id.to_i), :remote => true, :id => "id_get_coupon" %>
 													</div>
 												<% end %>	
 													</div>
@@ -160,6 +168,7 @@ Monday To Saturday</div>
 				<% end -%>
 				<% end %>
 					<div style="display:none;" class="loaddetail" id="load"><%= image_tag "loading.gif" %></div>
+
 				    <div id="favListContent" class="favorite-list"></div>
 				</section>
 		    </div>

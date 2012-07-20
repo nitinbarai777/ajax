@@ -84,8 +84,13 @@ Monday To Saturday</div>
 							</div>
 						</div>
 					</div>
-					
-					<div style="display:none;z-index:1;position:absolute;margin-left:0;left:0px;" class="span4" id="<%= @v %>_detailed_<%= row.id.to_i %>">
+				<% if @v == 'first'%>
+					<div style="display:none;z-index:1;position:absolute;margin-left:0;left:0px;" class="span4" id="first_detailed_<%= row.id.to_i %>">
+				<% elsif @v == 'second' %>
+					<div style="z-index: 1; position: absolute; width: 20%; margin-left: 335px; display: none;left:0px;" class="span4" id="second_detailed_<%= row.id.to_i %>">
+				<% else %>
+					<div style="display:none;z-index:1;position:absolute; right:0px;" class="span4" id="third_detailed_<%= row.id.to_i %>">
+				<% end %>
 						<div class="row-fluid">
 							<div class="span12">
 									<div class="categoryBox hero-unit expandBox">

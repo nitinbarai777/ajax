@@ -20,6 +20,7 @@ gem "ckeditor", "3.7.1"
 gem 'omniauth-facebook'
 gem 'debugger'
 gem 'nexmo'
+gem "gmaps4rails"
 
 # Use unicorn as the web server
 # gem 'unicorn'

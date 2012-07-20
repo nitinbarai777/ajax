@@ -6,7 +6,8 @@
     <th><%= sortable "contact" %></th>
     <th><%= sortable "city_id" %></th>
     <th><%= sortable "area_id" %></th>
-	<th><%= t("general.actions") %></th>
+	<th width="20%"><%= sortable "created_at" %></th>
+	<th width="10%"><%= t("general.actions") %></th>
   </tr>
   <% for o_row in @o_all %>
     <tr>
@@ -14,7 +15,7 @@
       <td><%= o_row.contact %></td>
       <td><%= City.find(o_row.city_id).name %></td>
       <td><%= Area.find(o_row.area_id).name %></td>
-
+      <td><%= o_row.created_at.to_s(:pretty) %></td>
       <td> <%= link_to image_tag("edit.png", :width => "16px", :height => "16px", :title => t("general.edit")), edit_merchant_location_path(o_row) %>
 		   <%= link_to image_tag("delete.png", :width => "16px", :height => "16px", :title => t("general.destroy")), o_row, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %>
 			<%= link_to image_tag("detail-icon.png", :width => "16px", :height => "16px", :title => t("general.coupon_details")), coupon_list_path(o_row.id) %>

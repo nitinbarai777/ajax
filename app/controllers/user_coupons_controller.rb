@@ -5,7 +5,7 @@ class UserCouponsController < ApplicationController
 
   # fetch all records
   def index
-    @o_all = UserCoupon.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @o_all = UserCoupon.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   
   #fetch single record and display

@@ -57,6 +57,7 @@ GEM
     erubis (2.7.0)
     faraday (0.8.1)
       multipart-post (~> 1.1)
+    gmaps4rails (1.5.2)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.1)
@@ -142,6 +143,7 @@ DEPENDENCIES
   carrierwave
   ckeditor (= 3.7.1)
   debugger
+  gmaps4rails
   jquery-rails
   mail
   mysql2

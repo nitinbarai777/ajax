@@ -7,7 +7,7 @@ class CouponsController < ApplicationController
 	unless params[:id].nil?
 		session[:merchant_location_id] = params[:id].to_i
 	end
-    @o_all = Coupon.search(params[:search], session[:merchant_location_id]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @o_all = Coupon.search(params[:search], session[:merchant_location_id]).order(sort_column + " " + sort_direction).paginate(:per_page => 10, :page => params[:page])
   end
   
   #fetch single record and display
@@ -59,11 +59,11 @@ class CouponsController < ApplicationController
   
   # sort column private method
   def sort_column
-    Coupon.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    Coupon.column_names.include?(params[:sort]) ? params[:sort] : "id"
   end
   
   # order records private method
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end

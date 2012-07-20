@@ -4,14 +4,16 @@
   <tr>
     <th><%= sortable "name" %></th>
     <th><%= sortable "city_id" %></th>
-	<th><%= t("general.is_active") %></th>
-	<th><%= t("general.actions") %></th>
+	<th width="5%"><%= t("general.is_active") %></th>
+	<th width="20%"><%= sortable "created_at" %></th>
+	<th width="10%"><%= t("general.actions") %></th>
   </tr>
   <% for o_row in @o_all %>
     <tr>
       <td><%= o_row.name %></td>
       <td><%= City.find(o_row.city_id).name %></td>
       <td><%= o_row.is_active ? image_tag("Yes.gif") : image_tag("No.gif") %></td>
+      <td><%= o_row.created_at.to_s(:pretty) %></td>
       <td> <%= link_to image_tag("edit.png", :width => "16px", :height => "16px", :title => t("general.edit")), edit_area_path(o_row) %>
 		   <%= link_to image_tag("delete.png", :width => "16px", :height => "16px", :title => t("general.destroy")), o_row, :confirm => t('general.are_you_sure_to_delete'), :method => :delete %>
 		</td>
