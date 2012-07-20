@@ -1,6 +1,7 @@
 Store::Application.routes.draw do
   
 
+  resources :search_coupons
   resources :user_providers
 
   resources :user_coupons
@@ -58,6 +59,8 @@ Store::Application.routes.draw do
 
 
 
+
+
   
   match 'userlist/:ord/:name' => 'users#index', :as => :userlist
 
@@ -66,6 +69,8 @@ Store::Application.routes.draw do
 
 
   match '/getArea' => 'merchant_locations#list_area_by_city', :as => :list_area_by_city
+  match '/searchArea' => 'search_coupons#list_area_by_city', :as => :searchArea
+
 
 
   match '/auth/:provider/callback', :to => 'fronts#facebook_login'

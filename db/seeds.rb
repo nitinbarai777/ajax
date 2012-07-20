@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+
+users = UserSession.create([{ :username => 'administrator' }, { :first_name => 'admin' }, { :last_name => 'admin' }, { :email => 'nitinbarai.virtueinfo@gmail.com' }, { :mobile_number => '9033194939' }, { :is_admin => 1 }, { :is_active => 1 }])

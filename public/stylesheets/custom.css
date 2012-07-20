@@ -201,3 +201,43 @@ form.new_micropost textarea { height: 4em; margin-bottom: 0; }
 
 .cl { clear:both;}
 .admintextbox ul, li { margin:0; padding:0; }
+
+
+.editablebox {width:100%;  }
+
+.editablebox  input, textarea {
+    -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.editablebox  input, textarea, select, .uneditable-input {
+    border: 1px solid #CCCCCC;
+    border-radius: 3px 3px 3px 3px;
+    color: #555555;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    height: 18px;
+    line-height: 18px;
+    margin-bottom: 9px;
+    padding: 4px;
+    width: 270px; 
+}
+.editablebox select, input[type="file"] {
+    height: 28px;
+    line-height: 28px; }
+	
+.editablebox select {
+  width: 280px;
+  background-color: #ffffff;
+}
+.editablebox input[type="button"],
+.editablebox input[type="reset"],
+.editablebox input[type="submit"] {
+  width: auto;
+  height: auto; background:#bb372d; font-size:15px; text-transform:uppercase; color:#fff; text-align:center; padding:7px 15px; border-radius:5px; -webkit-border-radius:5px;  moz-border-radius:5px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; border:none; float:left; cursor:pointer;
+}
+.editablebox label {
+    color: #333333;
+    display: block;
+    margin-bottom: 5px;
+}

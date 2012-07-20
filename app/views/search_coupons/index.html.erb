@@ -1,0 +1,30 @@
+<h3><%= t("general.search_coupon") %></h3>
+
+<%= form_tag search_coupons_path, :method => 'get', :id => "div_update_search_coupon" do %>
+<p>
+	<%= t("general.merchant_name") %>: <%= select_tag :merchant_id, options_for_select([["select merchant", ""]] + Merchant.all.map { |c| [c.name, c.id] })  %><br />
+	<%= t("general.city_name") %>: <%= select_tag :city_id, options_for_select([["select city", ""]] + City.all.map { |c| [c.name, c.id] })  %><br />
+	<div id="div_update_area">
+	  <p><%= t("general.area_name") %>: <%= select_tag :area_id, options_for_select([["select area", ""]])  %></p>
+	</div>
+</p>
+	<%= submit_tag t("general.search"), :name => nil %>
+<div class="cl"></div>
+	<div id="div_update"><%= render 'searchCoupon' %></div>
+<div class="cl"></div>
+<% end %>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+		$('#city_id').change(function() {
+			var snCityId = jQuery('#city_id').val();
+			callAjaxRequest(snCityId,'/searchArea','div_update_area')
+		});
+
+		$('#div_update_search_coupon').submit(function() {
+		    $.get($("#div_update_search_coupon").attr("action"), $("#div_update_search_coupon").serialize(), null, "script");
+		    return false;
+		});
+	});
+</script>
