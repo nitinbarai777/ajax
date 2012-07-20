@@ -10,6 +10,9 @@ class FrontsController < ApplicationController
 	elsif !params[:area_id].nil?
 		@o_all = Coupon.search_filterby_area(params[:area_id].to_i).paginate(:per_page => 9, :page => params[:page])
 		@o_all_areas = Area.where(:city_id => session[:city_id])
+	elsif !params[:coupon_id].nil?
+	    @o_all = Coupon.where(:id => params[:coupon_id]).paginate(:per_page => 9, :page => params[:page])
+		session[:city_id] = nil
 	else
 	    @o_all = Coupon.paginate(:per_page => 9, :page => params[:page])
 		session[:city_id] = nil

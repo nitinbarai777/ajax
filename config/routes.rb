@@ -47,6 +47,7 @@ Store::Application.routes.draw do
   match '/mobile_edit_update' => 'fronts#mobile_edit_update', :as => :mobile_edit_update
 
   match 'coupon_filter/:id' => 'fronts#index', :as => :coupon_filter
+  match 'coupon_by_id/:coupon_id' => 'fronts#index', :as => :coupon_by_id
   match 'get_coupon/:id' => 'fronts#get_coupon', :as => :get_coupon
 
   match 'coupon_filter_area/:area_id' => 'fronts#index', :as => :coupon_filter_area

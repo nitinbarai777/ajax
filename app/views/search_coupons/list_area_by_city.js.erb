@@ -1,2 +1,4 @@
-    <%= t("general.area_name") %>
+<p>	
+	<label><%= t("general.area_name") %></label>
     <%= select_tag "area_id", options_for_select([["select city", ""]] + @o_area.map { |c| [c.name, c.id] })  %>
+</p>

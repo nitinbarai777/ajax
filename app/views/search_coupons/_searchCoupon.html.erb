@@ -2,14 +2,16 @@
 <%= hidden_field_tag :sort, params[:sort] %>
 <table class="pretty" width="100%">
   <tr>
-    <th><%= "MearchantName" %></th>
-    <th><%= "contact" %></th>
-    <th><%= "city" %></th>
-	<th><%= "area" %></th>
-	<th><%= "CouponName" %></th>
-	<th><%= "Discount" %></th>
-	<th><%= "Valid" %></th>
+    <th width="20%"><%= "Mearchant" %></th>
+    <th width="10%"><%= "contact" %></th>
+    <th width="15%"><%= "city" %></th>
+	<th width="10%"><%= "area" %></th>
+	<th width="20%"><%= "Coupon" %></th>
+	<th width="2%"><%= "Discount" %></th>
+	<th width="10%"><%= "Valid" %></th>
+	<th width="13%"><%= "Get Coupon" %></th>
   </tr>
+
   <% for o_row in @o_all %>
     <tr>
       <td><%= o_row.name %></td>
@@ -19,9 +21,9 @@
 	<td><%= o_row.couponname %></td>
 	<td><%= o_row.price %>%</td>
 	<td><%= o_row.valid_to %></td>
-
-
-
+	<td>
+		<%= link_to image_tag('get-btn.png'), coupon_by_id_path(o_row.id.to_i), :id => "id_get_coupon" %>
+	</td>
 
     </tr>
   <% end %>
