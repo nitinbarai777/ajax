@@ -22,6 +22,12 @@ gem 'debugger'
 gem 'nexmo'
 gem "gmaps4rails"
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
+end
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
